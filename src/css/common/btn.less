@@ -1,0 +1,34 @@
+.btn {
+    font-size       : 18px;
+    font-weight     : 600;
+    color           : #ffffff;
+    border-radius   : 5px;
+    box-shadow      : 0 0 30px 0 rgba(215, 15, 70, 0.3);
+    background-color: @color-red;
+    text-decoration : none;
+    display         : inline-block;
+    line-height     : 1;
+    transition      : all 0.5s;
+    padding: 11px 38px;
+
+    @media screen and (min-width: 1025px) {
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &__support {
+        padding: 11px 41px;
+
+        &--small {
+            padding: 9px 31px;
+        }
+    }
+
+    &__join {
+        background-color: @color-green;
+        box-shadow      : 0 0 30px 0 rgba(69, 164, 59, 0.3);
+        padding         : 9px 32px;
+    }
+    
+}

@@ -1,0 +1,83 @@
+.search {
+
+    position: relative;
+
+    &__form {
+        display         : flex;
+        justify-content : flex-start;
+        align-items     : center;
+        align-content   : center;
+        position        : relative;
+        z-index         : 2;
+        transition      : all 0.5s;
+        width           : 263px;
+        max-width       : 100%;
+        border          : 0;
+        height          : 35px;
+        border-radius   : 5px;
+        background-color: #f9f9f9;
+
+    }
+
+    &__input {
+        -webkit-appearance: none;
+        font-size         : 18px;
+        color             : @color-black;
+        font-weight       : 600;
+        text-transform    : uppercase;
+        background-color  : transparent;
+        padding-left      : 10px;
+        height            : 23px;
+        letter-spacing: 0.03em;
+
+        &::-webkit-input-placeholder {
+            color  : #dcdcdc;
+            opacity: 1;
+        }
+
+        &::-moz-placeholder {
+            color  : #dcdcdc;
+            opacity: 1;
+        }
+
+        /* Firefox 19+ */
+        &:-moz-placeholder {
+            color  : #dcdcdc;
+            opacity: 1;
+        }
+
+        /* Firefox 18- */
+        &:-ms-input-placeholder {
+            color  : #dcdcdc;
+            opacity: 1;
+        }
+
+        &::-ms-clear {
+            display: none;
+            width  : 0;
+            height : 0;
+        }
+
+        &::-ms-reveal {
+            display: none;
+            width  : 0;
+            height : 0;
+        }
+
+        &::-webkit-search-decoration,
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-results-button,
+        &::-webkit-search-results-decoration {
+            display: none;
+        }
+
+    }
+
+    &__search-btn {
+        width          : 18px;
+        height         : 18px;
+        background     : url(../images/icons/search.png) no-repeat center;
+        background-size: contain;
+        margin-left    : 10px;
+    }
+}
