@@ -1,0 +1,56 @@
+@@include('./main/head.html', {
+"title": "Руководящие органы | Яблоко"
+})
+@@include('./main/header.html')
+
+<section class="page">
+    <div class="inner">
+        <h1>Руководящие органы</h1>
+        <div class="management">
+            <div class="row">
+                <div class="col col-3 management__col-leader">
+                    <div class="management__leader-block">
+                        <div class="management__title">ПРЕДСЕДАТЕЛЬ ОТДЕЛЕНИЯ</div>
+                        <a href="member.html" class="person">
+                            <div class="person__photo"><img src="./images/examples/team01.jpg" alt="Photo 300x300px" class="person__img"></div>
+                            <div class="person__text">
+                                <span class="person__surname">КУЗНЕЦОВА </span>
+                                <span class="person__name">Екатерина </span>
+                                <span class="person__secondname">Михайловна</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col col-9 management__col-list">
+                    <div class="management__employees-block">
+                        <div class="tabs">
+                            <div class="tabs__navigation">
+                                <div class="tabs__nav-item tabs__nav-item--active" data-section="bureau">БЮРО</div>
+                                <div class="tabs__nav-item" data-section="region">РЕГИОНАЛЬНЫЙ СОВЕТ</div>
+                                <div class="tabs__nav-item" data-section="krk">КРК</div>
+                                <div class="tabs__nav-item" data-section="district">Районные отделения</div>
+                            </div>
+                            <div class="tabs__info">
+                                <div class="tabs__item tabs__item--active" data-name-section="bureau">
+                                    @@include('./blocks/management-info.html')
+                                </div>
+                                <div class="tabs__item" data-name-section="region">
+                                    @@include('./blocks/management-info-2.html')
+                                </div>
+                                <div class="tabs__item" data-name-section="krk">
+                                    @@include('./blocks/management-info-3.html')
+                                </div>
+                                <div class="tabs__item" data-name-section="district">
+                                    @@include('./blocks/management-info-4.html')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+
+        </div>
+    </div>
+</section>
+
+@@include('./main/footer.html')

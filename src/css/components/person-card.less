@@ -1,0 +1,46 @@
+.person-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+
+    &__photo {
+        width: 165px;
+    }
+    &__info {
+        width: calc(100% - 165px);
+        padding-left: 25px;
+    }
+
+    &__name-block {
+        font-size: 20px;
+        font-weight: 600;
+        padding-bottom: 3px;
+    }
+    &__surname {
+        text-transform: uppercase;
+    }
+
+    &__position {
+        line-height: 1.2;
+        font-size: 16px;
+        font-weight: 600;
+        color: @color-green;
+    }
+    &__phone,
+    &__email {
+        line-height: 1.2;
+        font-size: 16px;
+        font-weight: 600;
+
+        a {
+            color: @color-black;
+            text-decoration: none;
+        }
+    }
+}
+
+.person-card__social-links {
+    margin-bottom: 0;
+    margin-top: 11px;
+}

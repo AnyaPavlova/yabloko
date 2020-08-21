@@ -10,8 +10,8 @@
     }
 
     &__item {
-        margin-left  : 7px;
-        margin-right : 7px;
+        margin-left  : 5px;
+        margin-right : 5px;
         width        : 49px;
         height       : 49px;
         background   : @color-black;
@@ -39,4 +39,16 @@
 
 .social-links__item--inst svg {
     width: 50%;
+}
+
+.social-links--small {
+    .social-links__block {
+        justify-content: flex-start;
+    }
+    .social-links__item {
+        margin-left: 0;
+        width: 36px;
+        height: 36px;
+        margin-right: 7px;
+    }
 }

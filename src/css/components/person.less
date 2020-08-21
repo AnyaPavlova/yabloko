@@ -1,0 +1,42 @@
+.person {
+    padding-bottom: 43px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: @color-black;
+    
+    &__photo {
+        width: 165px;
+        max-width: 100%;
+        margin: auto;
+        overflow: hidden;    
+        border-radius: 50%;   
+    }
+    &__img {
+        transition: all 0.5s;
+    }
+    &__text {
+        padding-top: 13px;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        line-height: 1.2;
+    }
+    &__surname {
+        text-transform: uppercase;    
+        display: block;    
+    }
+    &__name,
+    &__secondname {
+        display: block;
+    }
+}
+.person:hover {
+    .person__img {
+        transform: scale(1.2);
+        -webkit-filter: grayscale(.75);
+        filter: grayscale(.75);
+    }
+}

@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    // Календарь
     var hasCalendar = document.querySelector('.calendar');
     if (hasCalendar) {
 
@@ -64,6 +65,25 @@ $(document).ready(function () {
         });
         currentDate = datepicker[0].value;
         console.log(currentDate);
+    } 
+
+    // Табы  
+    var tabsBlockArr = document.querySelectorAll('.tabs');
+    if(tabsBlockArr.length!==0) {
+        for(var i=0; i < tabsBlockArr.length; i++) {
+            tabsBlockArr[i].addEventListener('click', changeActiveTab);
+        }
+        function changeActiveTab(event) {
+            var eventTarget = event.target;
+            if(eventTarget.classList.contains('tabs__nav-item')) {
+                this.querySelector('.tabs__nav-item--active').classList.remove('tabs__nav-item--active');
+                eventTarget.classList.add('tabs__nav-item--active');
+
+                var dataBlock = eventTarget.dataset.section;
+                this.querySelector('.tabs__item--active').classList.remove('tabs__item--active');
+                this.querySelector(`.tabs__item[data-name-section=${dataBlock}]`).classList.add('tabs__item--active');
+            }
+        }
     }
 
 
