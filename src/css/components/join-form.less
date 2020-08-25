@@ -1,0 +1,110 @@
+.join-form {
+    padding: 8px 0 35px;
+
+    &__item {
+        padding-bottom: 13px;
+    }
+
+    &__label-input {
+        padding-bottom: 3px;
+        font-size     : 18px;
+        font-weight   : 600;
+        display: block;
+    }
+    &__checkboxes {
+        padding-bottom: 15px;
+    }
+}
+
+.join-form__input {
+    border       : 0;
+    width        : 100%;
+    height       : 35px;
+    font-size    : 14px;
+    background   : #f2f2f2;
+    border-radius: 5px;
+    color        : @color-black;
+    padding-left: 10px;
+}
+
+.join-form__for-checkbox {
+    position: relative;
+    padding: 5px 0;
+    line-height: 1.2;
+}
+.join-form__checkbox {
+    display   : block;
+    visibility: visible;
+    opacity   : 0;
+    position  : absolute;
+}
+.join-form__label {
+    cursor: pointer;
+    position: relative;
+    line-height: 1.1;
+    font-size: 0;
+    vertical-align: top;
+}
+.join-form__check {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: #f2f2f2;
+    border-radius: 5px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+.join-form__text {
+    max-width: calc( 100% - 20px);
+    display: inline-block;
+    vertical-align: top;
+    font-size: 18px;
+    padding-left: 11px;
+    font-weight: 400;
+}
+.join-form__checkbox:checked + .join-form__label .join-form__check:before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 28px;
+    position: absolute;    
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url(../images/icons/checked.svg);
+    background-size: contain;
+}
+.join-form__label--agree .join-form__check,
+.join-form__label--agree .join-form__text {
+    vertical-align: middle;
+}
+
+.join-form-social-network {
+    &__btn {
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #f9f9f9;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 30px;
+        font-weight: 700;
+        color: #dcdcdc;
+
+        &:hover {
+            background: rgba(249,249,249,0.5);
+        }
+    }
+}
+
+// Ошибки заполнения
+.form__input--error + .join-form__label .join-form__check,
+.form__input--error.join-form__input  {
+    border: 1px solid @color-red;
+}

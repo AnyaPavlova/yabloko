@@ -1,0 +1,42 @@
+.join-member {
+    padding-bottom: 20px;
+
+    &__link {
+        display        : flex;
+        flex-wrap: wrap;        
+        text-decoration: none;
+        color          : @color-black;
+        align-content: center;
+        align-items: center;
+    }
+    &__photo {
+        width: 165px;
+        max-width: 100%;
+        margin: auto;
+        overflow: hidden;    
+        border-radius: 50%;   
+    }
+    &__img {
+        transition: all 0.5s;
+
+        &:hover {
+            transform: scale(1.2);
+        -webkit-filter: grayscale(.75);
+        filter: grayscale(.75);
+        }
+    }
+    &__text {
+        width: calc( 100% - 165px );
+        padding-left: 19px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+    &__surname {
+        text-transform: uppercase;    
+        display: block;    
+    }
+    &__name {
+        display: block;
+    }
+}

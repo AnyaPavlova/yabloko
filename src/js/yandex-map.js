@@ -1,33 +1,68 @@
-var contactsPage = document.querySelector('.contacts');
+var contactsPage = document.querySelector('.map-block');
 if (contactsPage) {
 
-    var mapContacts;
-    ymaps.ready(init);
-    function init() {
-        mapContacts = new ymaps.Map('contacts-map', {
-            center: [59.948585, 30.345685],
-            zoom: 16,
-            controls: ['zoomControl'] // Отключаем все элементы управления
-        });
+    if (document.querySelector('#contacts-map')) {
+        var mapContacts;
+        ymaps.ready(init);
+        function init() {
+            mapContacts = new ymaps.Map('contacts-map', {
+                center: [59.948585, 30.345685],
+                zoom: 16,
+                controls: ['zoomControl'] // Отключаем все элементы управления
+            });
 
-        var objectsmapContacts = new ymaps.ObjectManager();
+            var objectsMapContacts = new ymaps.ObjectManager();
 
-        objectsmapContacts.objects.options.set('iconLayout', 'default#image');
-        objectsmapContacts.objects.options.set('iconImageHref', 'images/balloon.png');
-        objectsmapContacts.objects.options.set('iconImageSize', [36, 36]);
-        objectsmapContacts.objects.options.set('iconImageOffset', [-18, -18]);
+            objectsMapContacts.objects.options.set('iconLayout', 'default#image');
+            objectsMapContacts.objects.options.set('iconImageHref', 'images/balloon.png');
+            objectsMapContacts.objects.options.set('iconImageSize', [36, 36]);
+            objectsMapContacts.objects.options.set('iconImageOffset', [-18, -18]);
 
-        mapContacts.geoObjects.add(objectsmapContacts);
-        objectsmapContacts.add(listObjectsmapContacts);
+            mapContacts.geoObjects.add(objectsMapContacts);
+            objectsMapContacts.add(listObjectsMapContacts);
 
-        mapContacts.behaviors.disable('scrollZoom'); //запрет прокрутки по скроллу        
+            mapContacts.behaviors.disable('scrollZoom'); //запрет прокрутки по скроллу        
+        }
+
+        var listObjectsMapContacts = {
+            "type": "FeatureCollection",
+            "features": [
+                { "type": "Feature", "id": 0, "geometry": { "type": "Point", "coordinates": [59.948585, 30.345685] }, "properties": {} }
+            ]
+        };
     }
 
-    var listObjectsmapContacts = {
-        "type": "FeatureCollection",
-        "features": [
-            { "type": "Feature", "id": 0, "geometry": { "type": "Point", "coordinates": [59.948585, 30.345685] }, "properties": {  } }
-        ]
-    };
+    if (document.querySelector('#example-map')) {
+        var mapExample;
+        ymaps.ready(init);
+        function init() {
+            mapExample = new ymaps.Map('example-map', {
+                center: [55.740387, 37.628716],
+                zoom: 16,
+                controls: ['zoomControl'] // Отключаем все элементы управления
+            });
+    
+            var objectsMapExample = new ymaps.ObjectManager();
+    
+            objectsMapExample.objects.options.set('iconLayout', 'default#image');
+            objectsMapExample.objects.options.set('iconImageHref', 'images/balloon.png');
+            objectsMapExample.objects.options.set('iconImageSize', [36, 36]);
+            objectsMapExample.objects.options.set('iconImageOffset', [-18, -18]);
+    
+            mapExample.geoObjects.add(objectsMapExample);
+            objectsMapExample.add(listObjectsMapExample);
+    
+            mapExample.behaviors.disable('scrollZoom'); //запрет прокрутки по скроллу        
+        }
+    
+        var listObjectsMapExample = {
+            "type": "FeatureCollection",
+            "features": [
+                { "type": "Feature", "id": 0, "geometry": { "type": "Point", "coordinates": [55.740387, 37.628716] }, "properties": {} },
+                { "type": "Feature", "id": 1, "geometry": { "type": "Point", "coordinates": [55.739271, 37.636717] }, "properties": {} }
+            ]
+        };
+    }
 
 }
+

@@ -46,7 +46,7 @@
                 </div>
                 <div class="header__btns-block">
                     <div class="header__btns">
-                        <a href="#" class="btn btn__support btn__support--small header__btn">ПОДДЕРЖАТЬ</a>
+                        <a href="index.html#support" class="btn btn__support btn__support--small header__btn">ПОДДЕРЖАТЬ</a>
                         <a href="join.html" class="btn btn__join header__btn">ПРИСОЕДИНИТЬСЯ</a>
                     </div>
                     <div class="header__search">
@@ -87,19 +87,206 @@
 
                     <div class="join-block__form">
                         <div class="join-form">
-                            <form class="join-form__form">
+                            <form class="join-form__form form" action="jquery-mailer.php" method="post" novalidate>
 
-                                
+                                <input type="hidden" value="join" name="formType" />
+                                <input value="Форма ПРИСОЕДИНИТЬСЯ" type="hidden" name="formSubject" />
+
+                                <div class="row row--small">
+                                    <div class="col col-4 join-form__item">
+                                        <div class="join-form__for-input">
+                                            <label class="join-form__label-input">Фамилия</label>
+                                            <input type="text" name="secondname" class="join-form__input" required>
+                                        </div>
+                                    </div>
+                                    <div class="col col-4 join-form__item">
+                                        <div class="join-form__for-input">
+                                            <label class="join-form__label-input">Имя</label>
+                                            <input type="text" name="name" class="join-form__input" required>
+                                        </div>
+                                    </div>
+                                    <div class="col col-4 join-form__item">
+                                        <div class="join-form__for-input">
+                                            <label class="join-form__label-input">Отчество</label>
+                                            <input type="text" name="patronymic" class="join-form__input">
+                                        </div>
+                                    </div>
+                                    <div class="col col-4 join-form__item">
+                                        <div class="join-form__for-input">
+                                            <label class="join-form__label-input">Телефон</label>
+                                            <input type="tel" name="phone" class="join-form__input" required>
+                                        </div>
+                                    </div>
+                                    <div class="col col-4 join-form__item">
+                                        <div class="join-form__for-input">
+                                            <label class="join-form__label-input">Почта</label>
+                                            <input type="email" name="email" class="join-form__input" required>
+                                        </div>
+                                    </div>
+                                    <div class="col col-4 join-form__item">
+                                        <div class="join-form__for-input">
+                                            <label class="join-form__label-input">Район</label>
+                                            <input type="text" name="district" class="join-form__input">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row row--center-vertical join-form-social-network">
+                                    <div class="col col-12">
+                                        <span class="join-form__label-input">Соцсети</span>
+                                    </div>
+                                    <div class="col col-4 join-form__item">
+                                        <input type="text" name="social-network[]" class="join-form__input">
+                                    </div>
+                                    <div class="col col-4 join-form__item join-form-social-network__btn-block"><button id="add-social-network" class="join-form-social-network__btn" type="button">+</button></div>
+                                </div>
+
+                                <div class="row join-form__checkboxes">
+                                    <div class="col col-12">
+                                        <span class="join-form__label-input">Я хочу</span>
+                                        <div class="join-form__for-checkbox">
+                                            <input class="join-form__checkbox" id="want-enter" type="checkbox" name="want[]" value="Вступить">
+                                            <label for="want-enter" class="join-form__label">
+                                                <span class="join-form__check"></span>
+                                                <span class="join-form__text">Вступить</span>
+                                            </label>
+                                        </div>
+                                        <div class="join-form__for-checkbox">
+                                            <input class="join-form__checkbox" id="want-agitate" type="checkbox" name="want[]" value="Агитировать">
+                                            <label for="want-agitate" class="join-form__label">
+                                                <span class="join-form__check"></span>
+                                                <span class="join-form__text">Агитировать</span>
+                                            </label>
+                                        </div>
+                                        <div class="join-form__for-checkbox">
+                                            <input class="join-form__checkbox" id="want-watch" type="checkbox" name="want[]" value="Наблюдать">
+                                            <label for="want-watch" class="join-form__label">
+                                                <span class="join-form__check"></span>
+                                                <span class="join-form__text">Наблюдать</span>
+                                            </label>
+                                        </div>
+                                        <div class="join-form__for-checkbox">
+                                            <input class="join-form__checkbox" id="want-news" type="checkbox" name="want[]" value="Получать новости">
+                                            <label for="want-news" class="join-form__label">
+                                                <span class="join-form__check"></span>
+                                                <span class="join-form__text">Получать новости</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row row--center-vertical">
+                                    <div class="col col-5 join-form__item">
+                                        <div class="join-form__for-btn">
+                                            <button type="submit" class="btn btn__join btn__join--big">ВСТУПИТЬ В ЯБЛОКО</button>
+                                        </div>
+                                    </div>
+                                    <div class="col col-6 join-form__item">
+                                        <div class="join-form__for-checkbox">
+                                            <input class="join-form__checkbox" id="agree-join" type="checkbox" name="agree" value="ok" required checked>
+                                            <label for="agree-join" class="join-form__label join-form__label--agree">
+                                                <span class="join-form__check"></span>
+                                                <span class="join-form__text">Я согласен с <a href="#memorandum" class="link-anchor">меморандумом политической альтернативы</a></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="form__message"></p>
+
 
                             </form>
                         </div>
                     </div>
-                </div>
-                <div class="col join-block__col-aside">
+
+                    <div class="memorandum" id="memorandum">
+                        <h3 class="memorandum__title">Меморандум ПОЛИТИЧЕСКОЙ АЛЬТЕРНАТИВЫ</h3>
+                        <div class="memorandum__content">
+                            <ol>
+                                <li>Нашей стране необходимы глубокие и всесторонние политические реформы, направленные на переход от авторитарной системы власти к реальному разделению властей, независимому, справедливому и милосердному правосудию, полноценному местному самоуправлению, прозрачности законодательной и исполнительной власти и их подотчетности гражданам, к честным выборам и деполитизации силовых структур.</li>
+
+                                <li>Большевизм и сталинизм являются человеконенавистническими идеологиями и практиками. Государство должно дать правовую оценку государственному перевороту 1917 -1918 гг. и последовавшим за ним тяжелейшим преступлениям.</li>
+
+                                <li>Национализм и религиозный фундаментализм в любых формах и проявлениях – неприемлемы.</li>
+
+                                <li>Переход от авторитарного режима к демократическому должен быть мирным, ненасильственным и осуществляться законным, конституционным путем.</li>
+
+                                <li>Необходимо немедленное прекращение гонки вооружений, отказ от государственной пропаганды войны, милитаризации страны, угроз и устрашения во внешней политике.</li>
+
+                                <li>Необходимо полное отделение бизнеса и собственности от власти (к слиянию которых привела ошибочная политика 1990-х и 2000-х годов), отказ от поддержки олигархического бизнеса из бюджета. Обязателен переход от сырьевой экономики к современной высокотехнологичной.</li>
+
+                                <li>Необходимо гласное и публичное расследование всех фактов коррупции в Правительстве, Администрации Президента, правоохранительных органах, госкомпаниях и госкорпорациях. Виновные должны понести наказание, кого бы это ни касалось.</li>
+
+                                <li>Должны быть прекращены политические репрессии, отменены все репрессивные законы, ограничивающие права и свободы человека, зафиксированные во второй главе Конституции Российской Федерации (включая антисиротский закон, ограничение права на митинги, присвоение НКО статуса «иностранного агента» и закон о нежелательных иностранных организациях). Необходима отмена цензуры в СМИ, социальных сетях и сфере культуры, прекращение произвольной блокировки интернет-ресурсов.</li>
+
+                                <li>Россия должна признать суверенитет Украины в границах 2013 года, прекратить поддержку криминала и сепаратистов, разжигание ненависти и пропаганду войны. Решение крымского вопроса возможно в соответствии с дорожной картой, выработанной в рамках специально созванной международной конференции.</li>
+
+                                <li> Достойное и успешное будущее России может быть основано только на ценностях свободы, прав человека, принципах демократии, правового государства и неприкосновенности частной собственности.</li>
+                            </ol>
+                        </div>
+                    </div>
 
                 </div>
+
+                <div class="col join-block__col-aside">
+                    <div class="join-block__with-us">
+                        <h3 class="join-block__with-us-title">КТО УЖЕ ВСТУПИЛ В ЯБЛОКО?</h3>
+                        <div class="join-block__members">
+                            <div class="join-member">
+                                <a href="member.html" class="join-member__link">
+                                    <div class="join-member__photo"><img src="./images/examples/team04.jpg" alt="Photo 300x300px" class="join-member__img"></div>
+                                    <div class="join-member__text">
+                                        <span class="join-member__name">Леонид</span>
+                                        <span class="join-member__surname">Моисейкин </span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="join-block__member-text">
+                                <p>Если вы зашли на эту страничку, значит, вы не безразличны к политике. Вы, вероятно, ходите на выборы и митинги, наблюдаете за ходом голосования. Теперь вы можете сделать следующий шаг, вступив в Яблоко.</p>
+                                <p>
+                                    В партии вы встретите близких вам по взглядам людей, единомышленников, которых, возможно, нет в ближайшем круге вашего общения. В Яблоке же каждый ваш коллега — будь ему 18 или хоть 88 лет — будет разделять ваши оппозиционные и демократические взгляды.
+                                </p>
+                                <p>У вас появится возможность влиять на выдвижение кандидатов на выборах, решать, кто будет руководить партийным отделением, а иногда — просто поддерживать однопартийцев, предлагающих сделать что-то важное для развития партии. Вы будете учиться политической деятельности, узнаете, как работает настоящая внутрипартийная демократия.</p>
+
+                                <p>В партии вы сможете активно работать над самыми разными проектами. Мы активно участвуем в выборах, побеждая там, где это возможно, но и между избирательными кампаниями в партии происходит много интересного.</p>
+
+                                <p>Сейчас очень важно заниматься политикой: в обществе растёт к ней интерес, а популярность власти падает. Яблоко как раз проходит трудный, но необходимый процесс обновления. В региональных отделениях партии на руководящие должности избираются молодые яблочники. Например, председателю нижегородского Яблока 25 лет, председателю челябинского — 31. В партию вступают новые люди: в одной только Москве за последние три года в Яблоко вступило свыше четырёхсот человек, а в Санкт-Петербурге — более ста пятидесяти. Вы можете стать следующим! Вместе у нас больше шансов изменить страну к лучшему.</p>
+                            </div>
+                            <div class="join-member">
+                                <a href="member.html" class="join-member__link">
+                                    <div class="join-member__photo"><img src="./images/examples/team01.jpg" alt="Photo 300x300px" class="join-member__img"></div>
+                                    <div class="join-member__text">
+                                        <span class="join-member__name">Татьяна </span>
+                                        <span class="join-member__surname">МУКОВНИКОВА </span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="join-member">
+                                <a href="member.html" class="join-member__link">
+                                    <div class="join-member__photo"><img src="./images/examples/team02.jpg" alt="Photo 300x300px" class="join-member__img"></div>
+                                    <div class="join-member__text">
+                                        <span class="join-member__name">Иван</span>
+                                        <span class="join-member__surname">Сорокин </span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="join-member">
+                                <a href="member.html" class="join-member__link">
+                                    <div class="join-member__photo"><img src="./images/examples/team03.jpg" alt="Photo 300x300px" class="join-member__img"></div>
+                                    <div class="join-member__text">
+                                        <span class="join-member__name">Леонид</span>
+                                        <span class="join-member__surname">АНДРУХОВ  </span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
         </div>
+    </div>
 
 
     </div>

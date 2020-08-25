@@ -3,17 +3,182 @@
 })
 @@include('./main/header.html')
 
-<section class="info">
+<div class="page">
     <div class="inner">
-        <h1>Lorem ipsum dolor sit amet.</h1>
-        <h2>Lorem, ipsum dolor.</h2>
-        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, iure.</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere aperiam quibusdam nisi incidunt atque officia dignissimos animi dolorem porro. Cumque blanditiis consectetur quod autem nihil, veniam eveniet dolore et officiis.</p>
-        <p>Ipsum tempora voluptatibus, eum blanditiis tenetur aliquam nulla adipisci fugiat ea corporis doloremque voluptas eveniet dolore totam dolor est sequi perspiciatis corrupti molestias reiciendis accusamus, consequuntur pariatur, rem at? Quo!</p>
-        <p>Dolorem aut et dolore. Cupiditate voluptatum eius quos fuga itaque ratione velit optio in asperiores nobis dolore voluptates, ducimus quis necessitatibus? Explicabo, illum reprehenderit quam aspernatur aliquid rerum soluta recusandae!</p>
-        <p>Ipsum quis saepe necessitatibus quibusdam molestias aspernatur, labore id error illum, distinctio quasi sed dolorum repellat rem expedita delectus modi porro repudiandae, et ratione maiores magnam nihil nulla. Veritatis, provident.</p>
-        <p>Fugit error, maiores, cupiditate odio architecto nemo aliquam corrupti voluptates neque ullam omnis repellat! Fugit corporis magnam aliquid nostrum possimus sunt quia cupiditate accusantium! Necessitatibus iste in molestiae perferendis distinctio!</p>
-        
+        <section class="payment">
+            <div class="row">
+                <div class="col col-8">
+                    <h1>СБОР НА ЮРИСТА ДЛЯ ДЕПУТАТСКИХ ДЕКЛАРАЦИЙ</h1>
+                    <div class="payment__text">
+                        <p>8 сентябре 2019 года мы <a href="#">избрали 99 муниципальных депутатов</a> в Петербурге и Мурино. Сейчас им нужно правильно заполнить и сдать декларацию о доходах за прошлый год. Если допустить малейшую ошибку или сдать декларацию хотя бы на 1 день позже — можно потерять мандат.</p>
+                        <p>Мы хотим нанять надёжного юриста, который проверит и перепроверит каждую декларацию, поможет исправить ошибки и обезопасить драгоценные мандаты.</p>
+                        <p>Для работы юриста в феврале и марте нам нужно собрать 150 000 ₽.</p>
+                    </div>
+                </div>
+                <div class="col col-4">
+                    <div class="payment-progress">
+                        <div class="payment-progress__line" id="payment-progress-line"><span></span></div>
+                        <div class="payment-progress__text">Собрано <span id="payment-start">89 228</span> ₽ из <span id="payment-all">150 000</span> ₽</div>
+                        <div class="payment-progress__btn-block">
+                            <a href="#support" class="btn btn__support link-anchor">ПОДДЕРЖАТЬ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-news">
+            <h2 class="main-news__title">Новости</h2>
+            <div class="main-news__container">
+                <div class="row">
+                    <div class="col col-6">
+                        <div class="main-news__item">
+                            <div class="main-news__preview-block">
+                                <a href="new.html" class="main-news__preview">
+                                    <img src="./images/examples/15.jpg" alt="Photo 555x300px" class="main-news__preview-img">
+                                </a>
+                            </div>
+                            <div class="main-news__info">
+                                <a href="new.html" class="main-news__name">БОРИС ВИШНЕВСКИЙ ПОТРЕБОВАЛ ОТ ГЕНПРОКУРОРА САНКТ-ПЕТЕРБУРГА ПРИНЕСТИ ПРОТЕСТ НА ПРИГОВОР ПО ДЕЛУ «СЕТИ»</a>
+                                <p class="main-news__date">12 марта 2020</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-6">
+                        <div class="main-news__item">
+                            <div class="main-news__info">
+                                <a href="new.html" class="main-news__name">Борис Вишневский: Двадцать поправок «Яблока»</a>
+                                <p class="main-news__date">9 февраля 2020</p>
+                            </div>
+                        </div>
+                        <div class="main-news__item">
+                            <div class="main-news__info">
+                                <a href="new.html" class="main-news__name">В Петербурге пройдёт творческий вечер Бориса Вишневского</a>
+                                <p class="main-news__date">6 февраля 2020</p>
+                            </div>
+                        </div>
+                        <div class="main-news__item">
+                            <div class="main-news__info">
+                                <a href="new.html" class="main-news__name">Петербургское «Яблоко» готовит предложения по поправкам в Конституцию РФ</a>
+                                <p class="main-news__date">29 января 2020</p>
+                            </div>
+                        </div>
+                        <div class="main-news__item">
+                            <div class="main-news__info">
+                                <a href="new.html" class="main-news__name">Петербургское «Яблоко» почтило память жертв блокады на Пискарёвском кладбище</a>
+                                <p class="main-news__date">27 января 2020</p>
+                            </div>
+                        </div>
+                        <div class="main-news__btns-block">
+                            <a href="#" class="main-news__btn btn btn--all">ВСЕ НОВОСТИ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<section class="deputies">
+    <div class="tabs">
+        <div class="inner">
+            <h2 class="deputies__title">ДЕПУТАТЫ</h2>
+            <div class="tabs__navigation">
+                <div class="tabs__nav-item tabs__nav-item--active" data-section="municipal">МУНИЦИПАЛЬНЫХ СОВЕТОВ</div>
+                <div class="tabs__nav-item" data-section="legislative">ЗАКОНОДАТЕЛЬНОГО СОБРАНИЯ</div>
+            </div>
+        </div>
+        <div class="tabs__info">
+            <div class="tabs__item tabs__item--active" data-name-section="municipal">
+                <div class="deputies__info">
+                    <div class="deputies__map-block map-block">
+                        <div class="deputies__map" id="contacts-map"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabs__item" data-name-section="legislative">
+                <div class="deputies__info">
+                    <div class="deputies__map-block map-block">
+                        <div class="deputies__map" id="example-map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="main-events">
+    <div class="inner">
+        <div class="row row--big">
+            <div class="col col-8">
+                <div class="news">
+                    <h2 class="news__title">СОБЫТИЯ</h1>
+                        <div class="row news__list">
+                            <div class="col col-12 news__col">
+                                <div class="news__item news__item-main">
+                                    <div class="news__preview-block">
+                                        <a href="event.html" class="news__preview">
+                                            <img src="./images/examples/11.jpg" alt="Photo 751x487px" class="news__preview-img">
+                                        </a>
+                                    </div>
+                                    <div class="news__info">
+                                        <a href="event.html" class="news__name">ЛЕКТОРИЙ ГОРОДСКИХ ПРОЕКТОВ В ПЕТЕРБУРГЕ: «НОЛЬ СМЕРТЕЙ НА ДОРОГАХ» — ВАЛЕНТИНА СОЛОВЬЁВА</a>
+                                        <p class="news__date">12 марта 2020, 19:30 </p>
+                                        <p class="news__venue">Шпалерная, 13</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col col-4">
+
+                <div class="calendar__block">
+                    <div id="datepicker" class="calendar"></div>
+                    <input type="hidden" id="datepicker_value">
+                </div>
+
+                <div class="main-events__btns-block">
+                    <a href="events.html" class="main-events__btn btn btn--all">ВСЕ события</a> 
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="main-join">
+    <div class="inner">
+        <h2 class="main-join__title">ПРИСОЕДИНИТЬСЯ</h2>
+        <div class="main-join__container">
+            <div class="row row--big">
+                <div class="col col-6">
+                    <p>Если вы зашли на эту страничку, значит, вы не безразличны к политике. Вы, вероятно, ходите на выборы и митинги, наблюдаете за ходом голосования. Теперь вы можете сделать следующий шаг, вступив в Яблоко.</p>
+
+                    <p>В партии вы встретите близких вам по взглядам людей, единомышленников, которых, возможно, нет в ближайшем круге вашего общения. В Яблоке же каждый ваш коллега — будь ему 18 или хоть 88 лет — будет разделять ваши оппозиционные и демократические взгляды.</p>
+
+                    <p>У вас появится возможность влиять на выдвижение кандидатов на выборах, решать, кто будет руководить партийным отделением, а иногда — просто поддерживать однопартийцев, предлагающих сделать что-то важное для развития партии. Вы будете учиться политической деятельности, узнаете, как работает настоящая внутрипартийная демократия.</p>
+                </div>
+                <div class="col col-6">
+                    <p>В партии вы сможете активно работать над самыми разными проектами. Мы активно участвуем в выборах, побеждая там, где это возможно, но и между избирательными кампаниями в партии происходит много интересного.</p>
+
+                    <p>Сейчас очень важно заниматься политикой: в обществе растёт к ней интерес, а популярность власти падает. Яблоко как раз проходит трудный, но необходимый процесс обновления. В региональных отделениях партии на руководящие должности избираются молодые яблочники. Например, председателю нижегородского Яблока 25 лет, председателю челябинского — 31. В партию вступают новые люди: в одной только Москве за последние три года в Яблоко вступило свыше четырёхсот человек, а в Санкт-Петербурге — более ста пятидесяти. Вы можете стать следующим! Вместе у нас больше шансов изменить страну к лучшему.</p>
+                </div>
+                <div class="col col-12">
+                    <div class="main-join__btns-block">
+                        <a href="join.html" class="btn btn__join btn__join--middle">ВСТУПИТЬ В ЯБЛОКО</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="support" id="support">
+    <div class="inner">
+        <div class="support__block">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis laudantium provident, magnam magni numquam temporibus enim aliquid debitis minus vitae esse a quas deleniti consequuntur velit nostrum animi corporis dolores!
+        </div>
     </div>
 </section>
 

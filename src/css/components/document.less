@@ -3,8 +3,8 @@
     max-width      : 530px;
     width          : 100%;
     margin-bottom  : 36px;
-    // padding-left: 70px;
-    padding-left   : 75px;
+    padding-left: 70px;
+    // padding-left   : 75px;
     position       : relative;
     text-transform : uppercase;
     font-size      : 20px;
@@ -15,8 +15,8 @@
     &:before {
         content            : '';
         display            : block;
-        // width: 59px;
-        width              : 71px;
+        width: 59px;
+        // width              : 71px;
         height             : 71px;
         position           : absolute;
         left               : 0;
@@ -29,19 +29,27 @@
     }
 
     &--pdf:before {
-        background-image: url(../images/icons/file-pdf.svg);
+        // background-image: url(../images/icons/file-pdf.svg);
+        background-image: url(../images/icons/files/PDF.png);
     }
 
     &--doc:before {
-        background-image: url(../images/icons/file-doc.svg);
+        // background-image: url(../images/icons/file-doc.svg);
+        background-image: url(../images/icons/files/DOC.png);
     }
 
     &--xls:before {
-        background-image: url(../images/icons/file-xls.svg);
+        // background-image: url(../images/icons/file-xls.svg);
+        background-image: url(../images/icons/files/XLS.png);
     }
 
     &--ppt:before {
-        background-image: url(../images/icons/file-ppt.svg);
+        // background-image: url(../images/icons/file-ppt.svg);
+        background-image: url(../images/icons/files/PPT.png);
+    }
+
+    &--txt:before {
+        background-image: url(../images/icons/files/TXT.png);
     }
 
     @media screen and (min-width: 1025px) {
