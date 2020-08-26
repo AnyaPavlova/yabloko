@@ -69,13 +69,13 @@ $(document).ready(function () {
 
     // Табы  
     var tabsBlockArr = document.querySelectorAll('.tabs');
-    if(tabsBlockArr.length!==0) {
-        for(var i=0; i < tabsBlockArr.length; i++) {
+    if (tabsBlockArr.length !== 0) {
+        for (var i = 0; i < tabsBlockArr.length; i++) {
             tabsBlockArr[i].addEventListener('click', changeActiveTab);
         }
         function changeActiveTab(event) {
             var eventTarget = event.target;
-            if(eventTarget.classList.contains('tabs__nav-item')) {
+            if (eventTarget.classList.contains('tabs__nav-item')) {
                 this.querySelector('.tabs__nav-item--active').classList.remove('tabs__nav-item--active');
                 eventTarget.classList.add('tabs__nav-item--active');
 
@@ -96,23 +96,23 @@ $(document).ready(function () {
 
     //Полоса % сбора
     var paymentProgressLine = document.querySelector('#payment-progress-line');
-    if(paymentProgressLine) {
+    if (paymentProgressLine) {
         var paymentStart = document.querySelector('#payment-start').innerText.replace(/[^0-9.]/gim, "");
         var paymentAll = document.querySelector('#payment-all').innerText.replace(/[^0-9.]/gim, "");
-        var percent = 100 - (paymentStart*100/paymentAll).toFixed(2);
+        var percent = 100 - (paymentStart * 100 / paymentAll).toFixed(2);
         paymentProgressLine.querySelector('span').style.width = `${percent}%`;
     }
 
     //Добавление соц. сети по кнопке
     var addSocialNetworkBtn = document.querySelector('#add-social-network');
-    if(addSocialNetworkBtn) {
+    if (addSocialNetworkBtn) {
         addSocialNetworkBtn.addEventListener('click', addSocialNetwork);
 
         function addSocialNetwork(event) {
             event.preventDefault();
             var parentBtnAdd = addSocialNetworkBtn.closest('.col');
             var newItemSocialBlock = `<div class="col col-4 join-form__item"><input type="text" name="social-network[]" class="join-form__input"></div>`
-            parentBtnAdd.insertAdjacentHTML('beforebegin',newItemSocialBlock);
+            parentBtnAdd.insertAdjacentHTML('beforebegin', newItemSocialBlock);
         }
     }
 
@@ -120,7 +120,7 @@ $(document).ready(function () {
     var formInPage = document.querySelectorAll('form');
     if (formInPage.length !== 0) {
         for (var formItem = 0; formItem < formInPage.length; formItem++) {
-            formInPage[formItem].addEventListener('submit', validateForm);            
+            formInPage[formItem].addEventListener('submit', validateForm);
         }
     }
 
@@ -150,9 +150,9 @@ $(document).ready(function () {
 
         for (var item = 0; item < requredItems.length; item++) {
             if (!requredItems[item].checkValidity()) {
-                requredItems[item].classList.add('form__input--error');                
+                requredItems[item].classList.add('form__input--error');
                 error = true;
-            }            
+            }
             requredItems[item].addEventListener('input', changeFields); //подписываем на событие input на поле
             requredItems[item].addEventListener('change', changeFields); //для checkbox/radio
         }
@@ -193,6 +193,106 @@ $(document).ready(function () {
             }
         });
     };
+
+    //Кнопка Копирования
+    var copyBlock = document.querySelector('.copy-in-buffer');
+    if (copyBlock) {
+        copyBlock.querySelector('.copy-in-buffer__btn').addEventListener('click', copyInfoInBuffer);
+
+        function copyInfoInBuffer(event) {
+            var textCopy = copyBlock.querySelector('.copy-in-buffer__text').innerText;
+            textCopy = `<input type="text" value="${textCopy}" class="copy-in-buffer__select-text">`;
+            copyBlock.insertAdjacentHTML('afterbegin', textCopy);
+            document.querySelector('.copy-in-buffer__select-text').select();
+            document.execCommand("copy");
+
+            var item = copyBlock.querySelector('.copy-in-buffer__select-text');
+            item.parentNode.removeChild(item);
+        }
+    }
+
+    //Форма ПОДДЕРЖАТЬ на главной - создаем сообщение
+    var supportForm = document.querySelector('.support-form');
+    if (supportForm) {
+        var supportFormInputArr = document.querySelectorAll('.support-form__input');
+        for (var i = 0; i < supportFormInputArr.length; i++) {
+            supportFormInputArr[i].addEventListener('input', fillingTextBlock);
+        }
+
+        var textBlock = document.querySelector('.copy-in-buffer__text');
+        function fillingTextBlock(event) {
+
+            var name = '';
+            if ((supportForm.querySelector('input[name=secondname]').value) || (supportForm.querySelector('input[name=name]').value) || (supportForm.querySelector('input[name=patronymic]').value)) {
+                name = `${supportForm.querySelector('input[name=secondname]').value} ${supportForm.querySelector('input[name=name]').value} ${supportForm.querySelector('input[name=patronymic]').value}, `;
+            }
+
+            var dopMonth;
+            if (supportForm.querySelector('input[name=dob-month]').value) {
+                dopMonth = supportForm.querySelector('input[name=dob-month]').value.trim();
+                function month() {
+                    switch (dopMonth) {
+                        case 'января':
+                            return '01';
+                        case 'февраля':
+                            return '02';
+                        case 'марта':
+                            return '03';
+                        case 'апреля':
+                            return '04';
+                        case 'мая':
+                            return '05';
+                        case 'июня':
+                            return '06';
+                        case 'июля':
+                            return '07';
+                        case 'августа':
+                            return '08';
+                        case 'сентября':
+                            return '09';
+                        case 'октября':
+                            return '10';
+                        case 'ноября':
+                            return '11';
+                        case 'декабря':
+                            return '12';
+                        default:
+                            return dopMonth;
+                    }
+                }
+                dopMonth = month();
+            }
+
+            var date = '';
+            if ((supportForm.querySelector('input[name=dob-day]').value) && (dopMonth) && (supportForm.querySelector('input[name=dob-year]').value)) {
+                date = `Дата рождения ${supportForm.querySelector('input[name=dob-day]').value}.${dopMonth}.${supportForm.querySelector('input[name=dob-year]').value},`;
+            }
+
+            var adress = `${supportForm.querySelector('input[name=subject]').value} ${supportForm.querySelector('input[name=city]').value}`;
+            if (supportForm.querySelector('input[name=address-street]').value) {
+                adress = adress + `, ${supportForm.querySelector('input[name=address-street]').value}`;
+            }
+            if (supportForm.querySelector('input[name=address-house]').value) {
+                adress = adress + ` д.${supportForm.querySelector('input[name=address-house]').value}`;
+            }
+            if (supportForm.querySelector('input[name=address-building]').value) {
+                adress = adress + ` к.${supportForm.querySelector('input[name=address-building]').value}`;
+            }
+            if (supportForm.querySelector('input[name=address-apartment]').value) {
+                adress = adress + ` кв.${supportForm.querySelector('input[name=address-apartment]').value},`;
+            }
+
+            var pasport = '';
+            if ((supportForm.querySelector('input[name=passport-serial]').value) && (supportForm.querySelector('input[name=passport-number]').value)) {
+                pasport = `пасп.${supportForm.querySelector('input[name=passport-serial]').value} ${supportForm.querySelector('input[name=passport-number]').value}, гр.РФ`
+            }
+
+            var newText = `Пожертвование. ${name} ${date} ${adress} ${pasport}`;
+
+            textBlock.innerText = newText;
+        }
+    }
+
 
 
 })

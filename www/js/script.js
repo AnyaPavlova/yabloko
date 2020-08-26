@@ -212,7 +212,127 @@ $(document).ready(function () {
     });
   }
 
-  ;
+  ; //Кнопка Копирования
+
+  var copyBlock = document.querySelector('.copy-in-buffer');
+
+  if (copyBlock) {
+    var copyInfoInBuffer = function copyInfoInBuffer(event) {
+      var textCopy = copyBlock.querySelector('.copy-in-buffer__text').innerText;
+      textCopy = "<input type=\"text\" value=\"".concat(textCopy, "\" class=\"copy-in-buffer__select-text\">");
+      copyBlock.insertAdjacentHTML('afterbegin', textCopy);
+      document.querySelector('.copy-in-buffer__select-text').select();
+      document.execCommand("copy");
+      var item = copyBlock.querySelector('.copy-in-buffer__select-text');
+      item.parentNode.removeChild(item);
+    };
+
+    copyBlock.querySelector('.copy-in-buffer__btn').addEventListener('click', copyInfoInBuffer);
+  } //Форма ПОДДЕРЖАТЬ на главной - создаем сообщение
+
+
+  var supportForm = document.querySelector('.support-form');
+
+  if (supportForm) {
+    var fillingTextBlock = function fillingTextBlock(event) {
+      var name = '';
+
+      if (supportForm.querySelector('input[name=secondname]').value || supportForm.querySelector('input[name=name]').value || supportForm.querySelector('input[name=patronymic]').value) {
+        name = "".concat(supportForm.querySelector('input[name=secondname]').value, " ").concat(supportForm.querySelector('input[name=name]').value, " ").concat(supportForm.querySelector('input[name=patronymic]').value, ", ");
+      }
+
+      var dopMonth;
+
+      if (supportForm.querySelector('input[name=dob-month]').value) {
+        var month = function month() {
+          switch (dopMonth) {
+            case 'января':
+              return '01';
+
+            case 'февраля':
+              return '02';
+
+            case 'марта':
+              return '03';
+
+            case 'апреля':
+              return '04';
+
+            case 'мая':
+              return '05';
+
+            case 'июня':
+              return '06';
+
+            case 'июля':
+              return '07';
+
+            case 'августа':
+              return '08';
+
+            case 'сентября':
+              return '09';
+
+            case 'октября':
+              return '10';
+
+            case 'ноября':
+              return '11';
+
+            case 'декабря':
+              return '12';
+
+            default:
+              return dopMonth;
+          }
+        };
+
+        dopMonth = supportForm.querySelector('input[name=dob-month]').value.trim();
+        dopMonth = month();
+      }
+
+      var date = '';
+
+      if (supportForm.querySelector('input[name=dob-day]').value && dopMonth && supportForm.querySelector('input[name=dob-year]').value) {
+        date = "\u0414\u0430\u0442\u0430 \u0440\u043E\u0436\u0434\u0435\u043D\u0438\u044F ".concat(supportForm.querySelector('input[name=dob-day]').value, ".").concat(dopMonth, ".").concat(supportForm.querySelector('input[name=dob-year]').value, ",");
+      }
+
+      var adress = "".concat(supportForm.querySelector('input[name=subject]').value, " ").concat(supportForm.querySelector('input[name=city]').value);
+
+      if (supportForm.querySelector('input[name=address-street]').value) {
+        adress = adress + ", ".concat(supportForm.querySelector('input[name=address-street]').value);
+      }
+
+      if (supportForm.querySelector('input[name=address-house]').value) {
+        adress = adress + " \u0434.".concat(supportForm.querySelector('input[name=address-house]').value);
+      }
+
+      if (supportForm.querySelector('input[name=address-building]').value) {
+        adress = adress + " \u043A.".concat(supportForm.querySelector('input[name=address-building]').value);
+      }
+
+      if (supportForm.querySelector('input[name=address-apartment]').value) {
+        adress = adress + " \u043A\u0432.".concat(supportForm.querySelector('input[name=address-apartment]').value, ",");
+      }
+
+      var pasport = '';
+
+      if (supportForm.querySelector('input[name=passport-serial]').value && supportForm.querySelector('input[name=passport-number]').value) {
+        pasport = "\u043F\u0430\u0441\u043F.".concat(supportForm.querySelector('input[name=passport-serial]').value, " ").concat(supportForm.querySelector('input[name=passport-number]').value, ", \u0433\u0440.\u0420\u0424");
+      }
+
+      var newText = "\u041F\u043E\u0436\u0435\u0440\u0442\u0432\u043E\u0432\u0430\u043D\u0438\u0435. ".concat(name, " ").concat(date, " ").concat(adress, " ").concat(pasport);
+      textBlock.innerText = newText;
+    };
+
+    var supportFormInputArr = document.querySelectorAll('.support-form__input');
+
+    for (var i = 0; i < supportFormInputArr.length; i++) {
+      supportFormInputArr[i].addEventListener('input', fillingTextBlock);
+    }
+
+    var textBlock = document.querySelector('.copy-in-buffer__text');
+  }
 });
 /*Полифилы для ie*/
 

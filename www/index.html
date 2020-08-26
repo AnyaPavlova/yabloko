@@ -201,7 +201,7 @@
                 </div>
 
                 <div class="main-events__btns-block">
-                    <a href="events.html" class="main-events__btn btn btn--all">ВСЕ события</a> 
+                    <a href="events.html" class="main-events__btn btn btn--all">ВСЕ события</a>
                 </div>
 
             </div>
@@ -239,7 +239,164 @@
 <section class="support" id="support">
     <div class="inner">
         <div class="support__block">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis laudantium provident, magnam magni numquam temporibus enim aliquid debitis minus vitae esse a quas deleniti consequuntur velit nostrum animi corporis dolores!
+            <h2 class="support__title">ПОДДЕРЖАТЬ</h2>
+            <div class="support-form">
+                <form class="support-form__form form" action="jquery-mailer.php" method="post" novalidate>
+                    <input type="hidden" value="support" name="formType" />
+                    <input value="Форма ПОДДЕРЖАТЬ" type="hidden" name="formSubject" />
+
+                    <div class="support-form__bank">
+                        <div class="support-form__for-radio">
+                            <input class="support-form__radio" id="bank-sber" type="radio" name="bank" value="СБЕРБАНК" checked>
+                            <label for="bank-sber" class="support-form__radio-label">
+                                <span class="support-form__text">СБЕРБАНК</span>
+                            </label>
+                        </div>
+                        <div class="support-form__for-radio">
+                            <input class="support-form__radio" id="bank-tinkoff" type="radio" name="bank" value="ТИНЬКОФФ">
+                            <label for="bank-tinkoff" class="support-form__radio-label">
+                                <span class="support-form__text">ТИНЬКОФФ</span>
+                            </label>
+                        </div>
+                        <div class="support-form__for-radio">
+                            <input class="support-form__radio" id="bank-vtb" type="radio" name="bank" value="ВТБ">
+                            <label for="bank-vtb" class="support-form__radio-label">
+                                <span class="support-form__text">ВТБ</span>
+                            </label>
+                        </div>
+                        <div class="support-form__for-radio">
+                            <input class="support-form__radio" id="bank-alfa" type="radio" name="bank" value="АЛЬФА БАНК">
+                            <label for="bank-alfa" class="support-form__radio-label">
+                                <span class="support-form__text">АЛЬФА БАНК</span>
+                            </label>
+                        </div>
+                        <div class="support-form__for-radio">
+                            <input class="support-form__radio" id="bank-roketbank" type="radio" name="bank" value="РОКЕТБАНК">
+                            <label for="bank-roketbank" class="support-form__radio-label">
+                                <span class="support-form__text">РОКЕТБАНК</span>
+                            </label>
+                        </div>
+                        <div class="support-form__for-radio">
+                            <input class="support-form__radio" id="bank-raif" type="radio" name="bank" value="РАЙФФАЙЗЕН">
+                            <label for="bank-raif" class="support-form__radio-label">
+                                <span class="support-form__text">РАЙФФАЙЗЕН</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="support-form__info">
+                        <div class="support-form__info-row">
+                            <div class="support-form__for-input">
+                                <div class="support-form__input-title">
+                                    <label class="support-form__label-input">Фамилия</label>
+                                </div>
+                                <div class="support-form__input-block support-form__input-block--standart">
+                                    <input type="text" name="secondname" class="support-form__input" size="15" required>
+                                </div>
+                            </div>
+                            <div class="support-form__for-input">
+                                <div class="support-form__input-title">
+                                    <label class="support-form__label-input">Имя</label>
+                                </div>
+                                <div class="support-form__input-block support-form__input-block--standart">
+                                    <input type="text" name="name" class="support-form__input" size="15" required>
+                                </div>
+                            </div>
+                            <div class="support-form__for-input">
+                                <div class="support-form__input-title">
+                                    <label class="support-form__label-input">Отчество</label>
+                                </div>
+                                <div class="support-form__input-block support-form__input-block--standart">
+                                    <input type="text" name="patronymic" class="support-form__input" size="15" required>
+                                </div>
+                            </div>
+                            <div class="support-form__for-input">
+                                <div class="support-form__input-title">
+                                    <label class="support-form__label-input">Паспорт</label>
+                                </div>
+                                <div class="support-form__input-block support-form__input-block--standart">
+                                    <input type="text" name="passport-serial" class="support-form__input support-form__input--left" maxlength="4" size="4" required>
+                                    <input type="text" name="passport-number" class="support-form__input support-form__input--right support-form__input--passport-number" maxlength="6" size="6" required>
+                                </div>
+                            </div>
+                            <div class="support-form__for-input">
+                                <div class="support-form__input-title">
+                                    <label class="support-form__label-input">Телефон</label>
+                                </div>
+                                <div class="support-form__input-block support-form__input-block--phone">
+                                    <input type="tel" name="phone" class="support-form__input" size="16" required>
+                                </div>
+                            </div>
+                            <div class="support-form__for-input">
+                                <div class="support-form__input-title">
+                                    <label class="support-form__label-input">Почта</label>
+                                </div>
+                                <div class="support-form__input-block support-form__input-block--email">
+                                    <input type="email" name="email" class="support-form__input" size="15" required>
+                                </div>
+                            </div>
+                            <div class="support-form__for-input">
+                                <div class="support-form__input-title">
+                                    <label class="support-form__label-input">Дата рождения</label>
+                                </div>
+                                <div class="support-form__input-block support-form__input-block--dob">
+                                    <input type="text" name="dob-day" class="support-form__input support-form__input--left" size="2" maxlength="2" required>
+                                    <input type="text" name="dob-month" class="support-form__input support-form__input--middle support-form__input--dob-month" size="8" required>
+                                    <input type="text" name="dob-year" class="support-form__input support-form__input--right" size="4" maxlength="4" required>
+                                </div>
+                            </div>
+                            <div class="support-form__for-input">
+                                <div class="support-form__input-title">
+                                    <label class="support-form__label-input">Субъект РФ</label>
+                                </div>
+                                <div class="support-form__input-block support-form__input-block--subject">
+                                    <input type="text" name="subject" class="support-form__input" size="15" required>
+                                </div>
+                            </div>
+                            <div class="support-form__for-input">
+                                <div class="support-form__input-title">
+                                    <label class="support-form__label-input">Город</label>
+                                </div>
+                                <div class="support-form__input-block support-form__input-block--city">
+                                    <input type="text" name="city" class="support-form__input" size="15" required>
+                                </div>
+                            </div>
+                            <div class="support-form__for-input">
+                                <div class="support-form__input-title">
+                                    <label class="support-form__label-input">Улица, дом, корпус, квартира</label>
+                                </div>
+                                <div class="support-form__input-block support-form__input-block--address">
+                                    <input type="text" name="address-street" class="support-form__input support-form__input--left support-form__input--address-street" size="16" required>
+                                    <input type="text" name="address-house" class="support-form__input support-form__input--middle" size="4" required>
+                                    <input type="text" name="address-building" class="support-form__input support-form__input--middle" size="4">
+                                    <input type="text" name="address-apartment" class="support-form__input support-form__input--right" size="4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="support__copy-block">
+                        <div class="support__copy-block-info copy-in-buffer">
+                            <p class="support__copy-block-title">Скопируйте этот текст</p>
+                            <p class="support__copy-block-text copy-in-buffer__text">
+                                Пожертвование. 
+                            </p>
+                            <button type="button" class="support__copy-btn copy-in-buffer__btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464.867 96.4h-81.4V15c0-8.284-6.716-15-15-15H47.133c-8.284 0-15 6.716-15 15v385.601c0 8.284 6.716 15 15 15h81.4V497c0 8.284 6.716 15 15 15h321.334c8.284 0 15-6.716 15-15V111.4c0-8.284-6.716-15-15-15zM62.133 385.601V30h291.334v81.149c-.002.084-.013.166-.013.251 0 .085.011.167.013.252v273.949H62.133zM449.867 482H158.533v-66.399h209.934c8.284 0 15-6.716 15-15V126.4h66.4V482z"/></svg></button>
+                        </div>
+                    </div>
+
+                    <div class="support-form__btns-block">
+                        <input type="text" name="pay" class="support-form__input support-form__input-summ" size="7" required placeholder="500 ₽">
+                        <button type="submit" class="btn btn__support support-form__btn">ПОДДЕРЖАТЬ</button>
+                    </div>
+
+                    <p class="form__message"></p>
+
+                </form>
+            </div>
+
+            
+
         </div>
     </div>
 </section>

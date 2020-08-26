@@ -6,4 +6,47 @@
         background-color: #f2f2f2;
         padding: 27px 30px 32px;
     }
+    &__title {
+        text-align: center;
+        padding-bottom: 23px;
+    }
+    
+    &__copy-block {
+        margin-bottom: 29px;
+        border: 2px solid #45a43b;
+        border-radius: 5px;
+    }
+    &__copy-block-info {
+        padding: 7px 115px 12px 10px;
+        position: relative;
+    }
+    &__copy-block-title {
+        font-weight: 600;
+    }
+    &__copy-block-text {
+        font-style: italic;
+        line-height: 1.2;
+    }
+    &__copy-btn {
+        display: block;
+        position: absolute;
+        top: 12px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        transform: rotate(180deg);
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        svg {
+            width: 30px;
+            height: 30px;
+            fill: @color-green;
+            position: absolute;
+            left: 0; right: 0;
+            top: 0; bottom: 0;
+        }
+    }
 }
