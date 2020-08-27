@@ -214,11 +214,83 @@ $(document).ready(function () {
     //Форма ПОДДЕРЖАТЬ на главной - создаем сообщение
     var supportForm = document.querySelector('.support-form');
     if (supportForm) {
+
+        //отслеживаем input
         var supportFormInputArr = document.querySelectorAll('.support-form__input');
         for (var i = 0; i < supportFormInputArr.length; i++) {
-            supportFormInputArr[i].addEventListener('input', fillingTextBlock);
+            supportFormInputArr[i].addEventListener('input', () => {
+                fillingTextBlock();
+                checkSupportInput(event);
+            });
         }
 
+        //наша валидация
+        function checkSupportInput(event) {
+            var eventTarget = event.target;
+
+            var regexpNumbers = new RegExp(/[^\d]/);
+            if ((eventTarget.name === 'passport-serial') || (eventTarget.name === 'passport-number')) {
+                eventTarget.value = eventTarget.value.replace(regexpNumbers, '');
+            }
+
+            var regexpPhone = new RegExp(/[^\d\-\+\ ]/);
+            if (eventTarget.name === 'phone') {
+                eventTarget.value = eventTarget.value.replace(regexpPhone, '');
+            }
+
+            var regexpDate = new RegExp(/^[0-9]$|^[0-2][0-9]$|^3[0-1]$/);
+            if (eventTarget.name === 'dob-day') {
+                var testReg = regexpDate.test(eventTarget.value);
+                if (!testReg) {
+                    eventTarget.setCustomValidity('error'); //пользовательская ошибка!
+                    eventTarget.classList.add("form__input--error");
+                } else {
+                    eventTarget.setCustomValidity('');
+                    eventTarget.classList.remove("form__input--error");
+                }
+            }
+
+            var regexMonth = new RegExp(/^0[1-9]$|^1[0-2]$|^января$|^февраля$|^марта$|^апреля$|^мая$|^июня$|^июля$|^августа$|^сентября$|^октября$|^ноября$|^декабря$/i);
+            if (eventTarget.name === 'dob-month') {
+                var testReg = regexMonth.test(eventTarget.value.trim());
+                if (!testReg && (eventTarget.value.length > 1)) {
+                    eventTarget.setCustomValidity('error'); //пользовательская ошибка!
+                    eventTarget.classList.add("form__input--error");
+                } else {
+                    eventTarget.setCustomValidity('');
+                    eventTarget.classList.remove("form__input--error");
+                }
+            }
+
+            if (eventTarget.name === 'dob-year') {
+                eventTarget.value = eventTarget.value.replace(regexpNumbers, '');
+                if (eventTarget.value.length === 4) {
+                    var currentYear = new Date().getFullYear();
+                    if (((currentYear - eventTarget.value) < 18) || ((currentYear - eventTarget.value) > 100)) {
+                        eventTarget.setCustomValidity('error'); //пользовательская ошибка!
+                        eventTarget.classList.add("form__input--error");
+                    } else {
+                        eventTarget.setCustomValidity('');
+                        eventTarget.classList.remove("form__input--error");
+                    }
+                } else {
+                    eventTarget.setCustomValidity('error'); //пользовательская ошибка!
+                    eventTarget.classList.add("form__input--error");
+                }
+            }
+
+            var regexPay = new RegExp(/[^\d\₽\ ]/);
+            if (eventTarget.name === 'pay') {
+                eventTarget.value = eventTarget.value.replace(regexPay, '');
+                eventTarget.value = eventTarget.value.replace(' ₽', '');
+                if (eventTarget.value) {
+                    eventTarget.value = eventTarget.value + ' ₽';
+                    eventTarget.setSelectionRange(eventTarget.value.length - 2, eventTarget.value.length - 2);
+                }
+            }
+        }
+
+        //Создаем сообщение
         var textBlock = document.querySelector('.copy-in-buffer__text');
         function fillingTextBlock(event) {
 
@@ -229,7 +301,7 @@ $(document).ready(function () {
 
             var dopMonth;
             if (supportForm.querySelector('input[name=dob-month]').value) {
-                dopMonth = supportForm.querySelector('input[name=dob-month]').value.trim();
+                dopMonth = supportForm.querySelector('input[name=dob-month]').value.trim().toLowerCase();
                 function month() {
                     switch (dopMonth) {
                         case 'января':

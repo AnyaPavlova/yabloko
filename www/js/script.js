@@ -234,104 +234,194 @@ $(document).ready(function () {
   var supportForm = document.querySelector('.support-form');
 
   if (supportForm) {
-    var fillingTextBlock = function fillingTextBlock(event) {
-      var name = '';
+    var supportFormInputArr;
+    var i;
+    var textBlock;
 
-      if (supportForm.querySelector('input[name=secondname]').value || supportForm.querySelector('input[name=name]').value || supportForm.querySelector('input[name=patronymic]').value) {
-        name = "".concat(supportForm.querySelector('input[name=secondname]').value, " ").concat(supportForm.querySelector('input[name=name]').value, " ").concat(supportForm.querySelector('input[name=patronymic]').value, ", ");
-      }
+    (function () {
+      //наша валидация
+      var checkSupportInput = function checkSupportInput(event) {
+        var eventTarget = event.target;
+        var regexpNumbers = new RegExp(/[^\d]/);
 
-      var dopMonth;
+        if (eventTarget.name === 'passport-serial' || eventTarget.name === 'passport-number') {
+          eventTarget.value = eventTarget.value.replace(regexpNumbers, '');
+        }
 
-      if (supportForm.querySelector('input[name=dob-month]').value) {
-        var month = function month() {
-          switch (dopMonth) {
-            case 'января':
-              return '01';
+        var regexpPhone = new RegExp(/[^\d\-\+\ ]/);
 
-            case 'февраля':
-              return '02';
+        if (eventTarget.name === 'phone') {
+          eventTarget.value = eventTarget.value.replace(regexpPhone, '');
+        }
 
-            case 'марта':
-              return '03';
+        var regexpDate = new RegExp(/^[0-9]$|^[0-2][0-9]$|^3[0-1]$/);
 
-            case 'апреля':
-              return '04';
+        if (eventTarget.name === 'dob-day') {
+          var testReg = regexpDate.test(eventTarget.value);
 
-            case 'мая':
-              return '05';
+          if (!testReg) {
+            eventTarget.setCustomValidity('error'); //пользовательская ошибка!
 
-            case 'июня':
-              return '06';
-
-            case 'июля':
-              return '07';
-
-            case 'августа':
-              return '08';
-
-            case 'сентября':
-              return '09';
-
-            case 'октября':
-              return '10';
-
-            case 'ноября':
-              return '11';
-
-            case 'декабря':
-              return '12';
-
-            default:
-              return dopMonth;
+            eventTarget.classList.add("form__input--error");
+          } else {
+            eventTarget.setCustomValidity('');
+            eventTarget.classList.remove("form__input--error");
           }
-        };
+        }
 
-        dopMonth = supportForm.querySelector('input[name=dob-month]').value.trim();
-        dopMonth = month();
+        var regexMonth = new RegExp(/^0[1-9]$|^1[0-2]$|^января$|^февраля$|^марта$|^апреля$|^мая$|^июня$|^июля$|^августа$|^сентября$|^октября$|^ноября$|^декабря$/i);
+
+        if (eventTarget.name === 'dob-month') {
+          var testReg = regexMonth.test(eventTarget.value.trim());
+
+          if (!testReg && eventTarget.value.length > 1) {
+            eventTarget.setCustomValidity('error'); //пользовательская ошибка!
+
+            eventTarget.classList.add("form__input--error");
+          } else {
+            eventTarget.setCustomValidity('');
+            eventTarget.classList.remove("form__input--error");
+          }
+        }
+
+        if (eventTarget.name === 'dob-year') {
+          eventTarget.value = eventTarget.value.replace(regexpNumbers, '');
+
+          if (eventTarget.value.length === 4) {
+            var currentYear = new Date().getFullYear();
+
+            if (currentYear - eventTarget.value < 18 || currentYear - eventTarget.value > 100) {
+              eventTarget.setCustomValidity('error'); //пользовательская ошибка!
+
+              eventTarget.classList.add("form__input--error");
+            } else {
+              eventTarget.setCustomValidity('');
+              eventTarget.classList.remove("form__input--error");
+            }
+          } else {
+            eventTarget.setCustomValidity('error'); //пользовательская ошибка!
+
+            eventTarget.classList.add("form__input--error");
+          }
+        }
+
+        var regexPay = new RegExp(/[^\d\₽\ ]/);
+
+        if (eventTarget.name === 'pay') {
+          eventTarget.value = eventTarget.value.replace(regexPay, '');
+          eventTarget.value = eventTarget.value.replace(' ₽', '');
+
+          if (eventTarget.value) {
+            eventTarget.value = eventTarget.value + ' ₽';
+            eventTarget.setSelectionRange(eventTarget.value.length - 2, eventTarget.value.length - 2);
+          }
+        }
+      }; //Создаем сообщение
+
+
+      var fillingTextBlock = function fillingTextBlock(event) {
+        var name = '';
+
+        if (supportForm.querySelector('input[name=secondname]').value || supportForm.querySelector('input[name=name]').value || supportForm.querySelector('input[name=patronymic]').value) {
+          name = "".concat(supportForm.querySelector('input[name=secondname]').value, " ").concat(supportForm.querySelector('input[name=name]').value, " ").concat(supportForm.querySelector('input[name=patronymic]').value, ", ");
+        }
+
+        var dopMonth;
+
+        if (supportForm.querySelector('input[name=dob-month]').value) {
+          var month = function month() {
+            switch (dopMonth) {
+              case 'января':
+                return '01';
+
+              case 'февраля':
+                return '02';
+
+              case 'марта':
+                return '03';
+
+              case 'апреля':
+                return '04';
+
+              case 'мая':
+                return '05';
+
+              case 'июня':
+                return '06';
+
+              case 'июля':
+                return '07';
+
+              case 'августа':
+                return '08';
+
+              case 'сентября':
+                return '09';
+
+              case 'октября':
+                return '10';
+
+              case 'ноября':
+                return '11';
+
+              case 'декабря':
+                return '12';
+
+              default:
+                return dopMonth;
+            }
+          };
+
+          dopMonth = supportForm.querySelector('input[name=dob-month]').value.trim().toLowerCase();
+          dopMonth = month();
+        }
+
+        var date = '';
+
+        if (supportForm.querySelector('input[name=dob-day]').value && dopMonth && supportForm.querySelector('input[name=dob-year]').value) {
+          date = "\u0414\u0430\u0442\u0430 \u0440\u043E\u0436\u0434\u0435\u043D\u0438\u044F ".concat(supportForm.querySelector('input[name=dob-day]').value, ".").concat(dopMonth, ".").concat(supportForm.querySelector('input[name=dob-year]').value, ",");
+        }
+
+        var adress = "".concat(supportForm.querySelector('input[name=subject]').value, " ").concat(supportForm.querySelector('input[name=city]').value);
+
+        if (supportForm.querySelector('input[name=address-street]').value) {
+          adress = adress + ", ".concat(supportForm.querySelector('input[name=address-street]').value);
+        }
+
+        if (supportForm.querySelector('input[name=address-house]').value) {
+          adress = adress + " \u0434.".concat(supportForm.querySelector('input[name=address-house]').value);
+        }
+
+        if (supportForm.querySelector('input[name=address-building]').value) {
+          adress = adress + " \u043A.".concat(supportForm.querySelector('input[name=address-building]').value);
+        }
+
+        if (supportForm.querySelector('input[name=address-apartment]').value) {
+          adress = adress + " \u043A\u0432.".concat(supportForm.querySelector('input[name=address-apartment]').value, ",");
+        }
+
+        var pasport = '';
+
+        if (supportForm.querySelector('input[name=passport-serial]').value && supportForm.querySelector('input[name=passport-number]').value) {
+          pasport = "\u043F\u0430\u0441\u043F.".concat(supportForm.querySelector('input[name=passport-serial]').value, " ").concat(supportForm.querySelector('input[name=passport-number]').value, ", \u0433\u0440.\u0420\u0424");
+        }
+
+        var newText = "\u041F\u043E\u0436\u0435\u0440\u0442\u0432\u043E\u0432\u0430\u043D\u0438\u0435. ".concat(name, " ").concat(date, " ").concat(adress, " ").concat(pasport);
+        textBlock.innerText = newText;
+      };
+
+      //отслеживаем input
+      supportFormInputArr = document.querySelectorAll('.support-form__input');
+
+      for (i = 0; i < supportFormInputArr.length; i++) {
+        supportFormInputArr[i].addEventListener('input', function () {
+          fillingTextBlock();
+          checkSupportInput(event);
+        });
       }
 
-      var date = '';
-
-      if (supportForm.querySelector('input[name=dob-day]').value && dopMonth && supportForm.querySelector('input[name=dob-year]').value) {
-        date = "\u0414\u0430\u0442\u0430 \u0440\u043E\u0436\u0434\u0435\u043D\u0438\u044F ".concat(supportForm.querySelector('input[name=dob-day]').value, ".").concat(dopMonth, ".").concat(supportForm.querySelector('input[name=dob-year]').value, ",");
-      }
-
-      var adress = "".concat(supportForm.querySelector('input[name=subject]').value, " ").concat(supportForm.querySelector('input[name=city]').value);
-
-      if (supportForm.querySelector('input[name=address-street]').value) {
-        adress = adress + ", ".concat(supportForm.querySelector('input[name=address-street]').value);
-      }
-
-      if (supportForm.querySelector('input[name=address-house]').value) {
-        adress = adress + " \u0434.".concat(supportForm.querySelector('input[name=address-house]').value);
-      }
-
-      if (supportForm.querySelector('input[name=address-building]').value) {
-        adress = adress + " \u043A.".concat(supportForm.querySelector('input[name=address-building]').value);
-      }
-
-      if (supportForm.querySelector('input[name=address-apartment]').value) {
-        adress = adress + " \u043A\u0432.".concat(supportForm.querySelector('input[name=address-apartment]').value, ",");
-      }
-
-      var pasport = '';
-
-      if (supportForm.querySelector('input[name=passport-serial]').value && supportForm.querySelector('input[name=passport-number]').value) {
-        pasport = "\u043F\u0430\u0441\u043F.".concat(supportForm.querySelector('input[name=passport-serial]').value, " ").concat(supportForm.querySelector('input[name=passport-number]').value, ", \u0433\u0440.\u0420\u0424");
-      }
-
-      var newText = "\u041F\u043E\u0436\u0435\u0440\u0442\u0432\u043E\u0432\u0430\u043D\u0438\u0435. ".concat(name, " ").concat(date, " ").concat(adress, " ").concat(pasport);
-      textBlock.innerText = newText;
-    };
-
-    var supportFormInputArr = document.querySelectorAll('.support-form__input');
-
-    for (var i = 0; i < supportFormInputArr.length; i++) {
-      supportFormInputArr[i].addEventListener('input', fillingTextBlock);
-    }
-
-    var textBlock = document.querySelector('.copy-in-buffer__text');
+      textBlock = document.querySelector('.copy-in-buffer__text');
+    })();
   }
 });
 /*Полифилы для ie*/
