@@ -1,5 +1,43 @@
 .main-events {
+
+    @media screen and (max-width: 960px) {
+        padding-bottom: 30px;
+    }
+    @media screen and (max-width: 670px)  {
+        padding-bottom: 20px;
+    }
+
     &__btns-block {
         margin: 20px 6px;
+
+        @media screen and (max-width: 960px) {
+            text-align: center;
+            margin-top: 10px;
+        }
+        @media screen and (max-width: 670px) {
+            margin-top: 20px;
+        }
+    }
+
+    &__calendar {
+        @media screen and (max-width: 960px) {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 670px) {
+        .news__item-main &__news-name {
+            font-size: 14px;
+        }
+        .news__item-main &__news-date,
+        .news__item-main &__news-venue {
+            font-size: 14px;
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        .news__item-main {
+            margin-bottom: 0px;
+        }
     }
 }

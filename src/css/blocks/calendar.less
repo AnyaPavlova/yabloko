@@ -1,5 +1,9 @@
 .calendar__block {
     margin-top: 50px;
+
+    @media screen and (max-width: 960px) {
+        margin-top: 10px;
+    }
 }
 
 .calendar {
@@ -116,13 +120,23 @@
         height         : 45px;
         font-size      : 20px;
         line-height    : 1;
+
+        @media screen and (max-width: 1100px) {
+            width : 35px;
+            height: 35px;
+        }
+
+        @media screen and (max-width: 960px) {
+            width : 40px;
+            height: 40px;
+        }
     }
 
     .ui-priority-secondary,
     .ui-widget-content .ui-priority-secondary,
     .ui-widget-header .ui-priority-secondary,
     .ui-datepicker-other-month .ui-state-default {
-        opacity    : 1;        
+        opacity    : 1;
         font-weight: 400;
     }
 
@@ -144,8 +158,16 @@
 }
 
 .calendar-before .ui-state-default {
-    color      : #aaaaaa !important;
+    color: #aaaaaa !important;
 }
+
 .calendar-active .ui-state-default {
     background-color: #dddddd !important;
+}
+
+@media screen and (max-width: 960px) {
+    .calendar .ui-datepicker table {
+        width: auto;
+        margin: 0 auto;
+    }
 }

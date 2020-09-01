@@ -17,6 +17,11 @@
         border-radius   : 5px;
         background-color: #f9f9f9;
 
+        @media screen and (max-width: 1100px) {
+            justify-content: flex-end;
+            padding-right: 10px;
+        }
+
     }
 
     &__input {
@@ -29,6 +34,10 @@
         padding-left      : 10px;
         height            : 23px;
         letter-spacing: 0.03em;
+        
+        @media screen and (max-width: 1100px) {
+            text-align: right;
+        }
 
         &::-webkit-input-placeholder {
             color  : #dcdcdc;
@@ -79,5 +88,9 @@
         background     : url(../images/icons/search.png) no-repeat center;
         background-size: contain;
         margin-left    : 10px;
+
+        @media screen and (max-width: 1100px) {
+            order: 1;
+        }
     }
 }

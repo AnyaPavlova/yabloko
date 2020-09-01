@@ -1,6 +1,10 @@
 .join-member {
     padding-bottom: 20px;
 
+    @media screen and (max-width: 1200px) {
+        width: 100%;
+    }
+
     &__link {
         display        : flex;
         flex-wrap: wrap;        
@@ -8,6 +12,10 @@
         color          : @color-black;
         align-content: center;
         align-items: center;
+
+        @media screen and (max-width: 1200px) {
+            justify-content: center;
+        }
     }
     &__photo {
         width: 165px;
@@ -31,6 +39,13 @@
         font-size: 20px;
         font-weight: 600;
         line-height: 1.2;
+
+        @media screen and (max-width: 1200px) {
+            width: 100%;
+            padding-left: 0;
+            padding-top: 5px;
+            text-align: center;
+        }
     }
     &__surname {
         text-transform: uppercase;    

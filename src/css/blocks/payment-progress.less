@@ -30,6 +30,16 @@
         font-weight: 600;
         text-transform: uppercase;
         padding-top: 10px;
+
+        @media screen and (max-width: 670px) {
+            font-size: 18px;
+        }
+
+        span {
+            @media screen and (max-width: 1100px) {
+                white-space: nowrap;
+            }
+        }
     }
 
     &__btn-block {

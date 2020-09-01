@@ -1,11 +1,19 @@
 .deputies {
     padding-bottom: 45px;
 
+    @media screen and (max-width: 670px) {
+        padding-bottom: 30px;
+    }
+
     &__title {
         padding-bottom: 10px;
     }
     &__info {
         padding-top: 20px;
+
+        @media screen and (max-width: 670px) {
+            padding-top: 10px;
+        }
     }
 
     &__map-block {
@@ -15,6 +23,10 @@
         padding-bottom: 45%;
         position: relative;
         background: #f9f9f9;
+
+        @media screen and (max-width: 670px) {
+            padding-bottom: 115%;
+        }
     }
     &__map {
         position: absolute;
@@ -22,5 +34,18 @@
         right: 0;
         top: 0;
         bottom: 0;        
+    }
+
+    @media screen and (max-width: 768px) {
+        &__nav {
+            flex-wrap: nowrap;
+            overflow: auto;
+        }
+        &__nav-item {
+            white-space: nowrap;
+            font-size: 14px;
+            padding-bottom: 0px;
+            margin-right: 20px;
+        }
     }
 }

@@ -1,12 +1,25 @@
 .payment {    
     padding-bottom: 25px;
 
+    @media screen and (max-width: 670px) {
+        padding-bottom: 30px;
+    }
+
     &__text {
         line-height: 1.2;
         padding-top: 20px;
 
+        @media screen and (max-width: 670px) {
+            padding-top: 15px;
+            padding-bottom: 12px;
+        }
+
         p {
             padding-bottom: 20px;
+
+            @media screen and (max-width: 670px) {
+                padding-bottom: 15px;
+            }
         }
     }
 }

@@ -1,8 +1,16 @@
 .join-form {
     padding: 8px 0 35px;
 
+    @media screen and (max-width: 670px) {
+        padding-bottom: 25px;
+    }
+
     &__item {
         padding-bottom: 13px;
+
+        @media screen and (max-width: 670px) {
+            padding-bottom: 10px;
+        } 
     }
 
     &__label-input {
@@ -13,6 +21,19 @@
     }
     &__checkboxes {
         padding-bottom: 15px;
+
+        @media screen and (max-width: 670px) {
+            padding-bottom: 25px;
+        }
+    }
+
+    &__item-btn {
+        @media screen and (max-width: 960px) {
+            order: 1;
+        }
+        @media screen and (max-width: 670px) {
+            order: 0;
+        }
     }
 }
 
@@ -31,6 +52,15 @@
     position: relative;
     padding: 5px 0;
     line-height: 1.2;
+
+    @media screen and (max-width: 670px) {
+        width: 49%;
+        display: inline-block;
+
+        &--memorandum {
+            width: 100%;
+        }
+    }
 }
 .join-form__checkbox {
     display   : block;

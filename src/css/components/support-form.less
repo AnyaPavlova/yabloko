@@ -1,64 +1,120 @@
 .support-form {
 
     &__bank {
-        padding-bottom : 27px;
-        display        : flex;
-        flex-wrap      : wrap;
-        margin-left    : -9px;
-        margin-right   : -9px;
+        padding-bottom: 27px;
+        display       : flex;
+        flex-wrap     : wrap;
+        margin-left   : -9px;
+        margin-right  : -9px;
+
+        @media screen and (max-width: 1100px) {
+            justify-content: center;
+            padding-bottom : 10px;
+        }
     }
+
     &__for-radio {
-        padding-left : 9px;
-        padding-right: 9px;
-        position     : relative;
+        padding-left  : 9px;
+        padding-right : 9px;
+        position      : relative;
         padding-bottom: 8px;
+
+        @media screen and (max-width: 1100px) {
+            padding-bottom: 20px;
+        }
+
+        @media screen and (max-width: 670px) {
+            padding: 0 5px 10px;
+        }
     }
 
     &__info {
         padding-bottom: 15px;
     }
+
     &__info-row {
-        display: flex;
-        flex-wrap: wrap;
+        display        : flex;
+        flex-wrap      : wrap;
         justify-content: space-between;
-        margin-left: -9px;
-        margin-right: -9px;
+        margin-left    : -9px;
+        margin-right   : -9px;
     }
+
     &__for-input {
-        padding: 0 9px 15px;        
+        padding: 0 9px 15px;
+
+        @media screen and (max-width: 670px) {
+            width: 100%;
+        }
     }
+
     &__input-title {
         padding-bottom: 5px;
     }
+
     &__label-input {
         font-weight: 600;
+
+        @media screen and (max-width: 670px) {
+            font-size: 18px;
+        }
     }
+
     &__input-block {
         display: flex;
 
         &--standart {
             width: 151px;
+
+            @media screen and (max-width: 960px) {
+                width: 100%;
+            }
         }
+
         &--phone {
             width: 181px;
+
+            @media screen and (max-width: 960px) {
+                width: 100%;
+            }
         }
+
         &--email {
             width: 201px;
+
+            @media screen and (max-width: 960px) {
+                width: 100%; 
+            }
         }
+
         // &--dob {
         //     width: 201px;
         // }
         &--subject {
             width: 201px;
+
+            @media screen and (max-width: 670px) {
+                width: 100%;
+            }
         }
+
         &--city {
             width: 201px;
+
+            @media screen and (max-width: 670px) {
+                width: 100%;
+            }
         }
+
         &--address {
             width: 401px;
+
+            @media screen and (max-width: 670px) {
+                width: 100%;
+            }
         }
-    }  
-    
+    }
+
     .form__message {
         margin-top: 10px;
     }
@@ -66,33 +122,35 @@
 
 .support-form__input {
     border       : 0;
-    width: 100%;
-    max-width: 100%;
+    width        : 100%;
+    max-width    : 100%;
     height       : 40px;
     font-size    : 18px;
     background   : #ffffff;
     border-radius: 5px;
     color        : @color-black;
-    padding-left: 10px;
+    padding-left : 10px;
 
     &--left {
-        width: auto;
+        width        : auto;
         border-radius: 5px 0 0 5px;
-        border-right: 1px solid #f9f9f9;
+        border-right : 1px solid #f9f9f9;
     }
+
     &--middle {
-        width: auto;
+        width        : auto;
         border-radius: 0;
-        border-right: 1px solid #f9f9f9;
-        border-left: 1px solid #f9f9f9;
-        padding-left: 8px;
+        border-right : 1px solid #f9f9f9;
+        border-left  : 1px solid #f9f9f9;
+        padding-left : 8px;
     }
+
     &--right {
-        width: auto;
+        width        : auto;
         border-radius: 0 5px 5px 0;
-        border-left: 1px solid #f9f9f9;
-        padding-left: 8px;
-    }    
+        border-left  : 1px solid #f9f9f9;
+        padding-left : 8px;
+    }
 
     &--passport-number,
     &--dob-month,
@@ -100,8 +158,9 @@
         flex-grow: 1;
     }
 }
+
 .support-form__input-summ {
-    width: auto;
+    width      : auto;
     font-weight: 600;
 
     &::-webkit-input-placeholder {
@@ -126,6 +185,7 @@
         opacity: 1;
     }
 }
+
 .support-form__btn {
     margin-left: -10px;
 }
@@ -137,6 +197,7 @@
     opacity   : 0;
     position  : absolute;
 }
+
 .support-form__radio-label {
     display         : block;
     border-radius   : 5px;
@@ -145,20 +206,36 @@
     font-weight     : 600;
     padding         : 8px 30px;
     line-height     : 1;
-    cursor: pointer;
+    cursor          : pointer;
 
-    &:hover {
-        opacity: 0.8;
+    @media screen and (max-width: 670px) {
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: 1025px) {
+        &:hover {
+            opacity: 0.8;
+        }
     }
 }
-.support-form__radio:checked + .support-form__radio-label {
+
+.support-form__radio:checked+.support-form__radio-label {
     box-shadow      : 0 0 30px 0 var(--medium-green-30);
     background-color: #45a43b;
     color           : #ffffff;
 }
 
 // Ошибки заполнения
-.form__input--error + .support-form__label .join-form__check,
-.form__input--error.support-form__input  {
+.form__input--error+.support-form__label .join-form__check,
+.form__input--error.support-form__input {
     border: 1px solid @color-red;
+}
+
+@media screen and (max-width: 670px) {    
+    .support-form__input-block--address .support-form__input {
+            max-width: 16%;
+    }
+    .support-form__input-block--address .support-form__input--address-street {
+        max-width: 52%;
+    }
 }

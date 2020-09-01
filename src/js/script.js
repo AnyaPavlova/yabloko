@@ -111,7 +111,7 @@ $(document).ready(function () {
         function addSocialNetwork(event) {
             event.preventDefault();
             var parentBtnAdd = addSocialNetworkBtn.closest('.col');
-            var newItemSocialBlock = `<div class="col col-4 join-form__item"><input type="text" name="social-network[]" class="join-form__input"></div>`
+            var newItemSocialBlock = `<div class="col col-4 col-sm-10 join-form__item"><input type="text" name="social-network[]" class="join-form__input"></div>`
             parentBtnAdd.insertAdjacentHTML('beforebegin', newItemSocialBlock);
         }
     }
@@ -365,6 +365,36 @@ $(document).ready(function () {
         }
     }
 
+    //Бургер
+    var isMobile = window.matchMedia("(max-width: 1024px)").matches;
+
+    var burger = document.querySelector('#burger');
+    if(burger) {       
+        burger.addEventListener('click', toggleBurger);
+        document.querySelector('#burger-close').addEventListener('click', toggleBurger);
+
+        var headerInfo = document.querySelector('.header__info');
+        
+        function toggleBurger(event) {
+            event.preventDefault();
+            // headerInfo.classList.toggle('header__info--open');
+            $(headerInfo).slideToggle(300);
+        }
+
+    }
+
+    var calendarBurger = document.querySelector('#news-burger');
+    if(calendarBurger) {
+        var calendarBlock = document.querySelector('#calendar-block');
+
+        calendarBurger.addEventListener('click', toggleCalendarBurger);
+        document.querySelector('#news-burger-close').addEventListener('click', toggleCalendarBurger);
+
+        function toggleCalendarBurger(event) {
+            event.preventDefault();
+            $(calendarBlock).slideToggle(300);
+        }
+    }
 
 
 })

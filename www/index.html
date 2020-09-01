@@ -32,7 +32,22 @@
                 <img src="./images/logo.png" alt="Logo" class="header__logo-img">
                 <div class="header__logo-text">Санкт-Петербург</div>
             </a>
+            <button type="button" class="burger" id="burger">
+                <span class="burger__lines">
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                </span>
+                <span class="burger__text">МЕНЮ</span>
+            </button>
             <div class="header__info">
+                <button type="button" class="burger-close" id="burger-close">
+                    <span class="burger-close__text">СВЕРНУТЬ МЕНЮ</span>
+                    <span class="burger-close__lines">
+                        <span class="burger-close__line"></span>
+                        <span class="burger-close__line"></span>
+                    </span>
+                </button>
                 <div class="header__menu">
                     <nav class="menu">
                         <ul class="menu__list">
@@ -52,10 +67,10 @@
                     <div class="header__search">
                         <div class="search">
                             <form class="search__form" id="search-form" role="search" method="get" action="">
-                              <button class="search__search-btn" type="submit"></button>
-                              <input class="search__input" type="search" placeholder="Поиск" value="" name="search">              
+                                <button class="search__search-btn" type="submit"></button>
+                                <input class="search__input" type="search" placeholder="Поиск" value="" name="search">
                             </form>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,11 +80,20 @@
 
 <main class="main">
 
+    <div class="mobile-btns">
+        <div class="inner">
+            <div class="mobile-btns__block">
+                <a href="index.html#support" class="btn btn__support btn__support--small mobile-btns__btn">ПОДДЕРЖАТЬ</a>
+                <a href="join.html" class="btn btn__join mobile-btns__btn">ПРИСОЕДИНИТЬСЯ</a>
+            </div>
+        </div>
+    </div>
+
 <div class="page">
     <div class="inner">
         <section class="payment">
             <div class="row">
-                <div class="col col-8">
+                <div class="col col-8 col-md-7">
                     <h1>СБОР НА ЮРИСТА ДЛЯ ДЕПУТАТСКИХ ДЕКЛАРАЦИЙ</h1>
                     <div class="payment__text">
                         <p>8 сентябре 2019 года мы <a href="#">избрали 99 муниципальных депутатов</a> в Петербурге и Мурино. Сейчас им нужно правильно заполнить и сдать декларацию о доходах за прошлый год. Если допустить малейшую ошибку или сдать декларацию хотя бы на 1 день позже — можно потерять мандат.</p>
@@ -77,10 +101,10 @@
                         <p>Для работы юриста в феврале и марте нам нужно собрать 150 000 ₽.</p>
                     </div>
                 </div>
-                <div class="col col-4">
+                <div class="col col-4 col-md-5">
                     <div class="payment-progress">
                         <div class="payment-progress__line" id="payment-progress-line"><span></span></div>
-                        <div class="payment-progress__text">Собрано <span id="payment-start">89 228</span> ₽ из <span id="payment-all">150 000</span> ₽</div>
+                        <div class="payment-progress__text">Собрано <span id="payment-start">89 228 ₽</span> из <span id="payment-all">150 000 ₽</span></div>
                         <div class="payment-progress__btn-block">
                             <a href="#support" class="btn btn__support link-anchor">ПОДДЕРЖАТЬ</a>
                         </div>
@@ -93,7 +117,7 @@
             <h2 class="main-news__title">Новости</h2>
             <div class="main-news__container">
                 <div class="row">
-                    <div class="col col-6">
+                    <div class="col col-6 main-news__col-main">
                         <div class="main-news__item">
                             <div class="main-news__preview-block">
                                 <a href="new.html" class="main-news__preview">
@@ -106,7 +130,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col col-6">
+                    <div class="col col-6 main-news__col-another">
                         <div class="main-news__item">
                             <div class="main-news__info">
                                 <a href="new.html" class="main-news__name">Борис Вишневский: Двадцать поправок «Яблока»</a>
@@ -145,9 +169,9 @@
     <div class="tabs">
         <div class="inner">
             <h2 class="deputies__title">ДЕПУТАТЫ</h2>
-            <div class="tabs__navigation">
-                <div class="tabs__nav-item tabs__nav-item--active" data-section="municipal">МУНИЦИПАЛЬНЫХ СОВЕТОВ</div>
-                <div class="tabs__nav-item" data-section="legislative">ЗАКОНОДАТЕЛЬНОГО СОБРАНИЯ</div>
+            <div class="tabs__navigation deputies__nav">
+                <div class="tabs__nav-item deputies__nav-item tabs__nav-item--active" data-section="municipal">МУНИЦИПАЛЬНЫХ СОВЕТОВ</div>
+                <div class="tabs__nav-item deputies__nav-item" data-section="legislative">ЗАКОНОДАТЕЛЬНОГО СОБРАНИЯ</div>
             </div>
         </div>
         <div class="tabs__info">
@@ -172,7 +196,7 @@
 <section class="main-events">
     <div class="inner">
         <div class="row row--big">
-            <div class="col col-8">
+            <div class="col col-8 col-md-12">
                 <div class="news">
                     <h2 class="news__title">СОБЫТИЯ</h1>
                         <div class="row news__list">
@@ -184,18 +208,18 @@
                                         </a>
                                     </div>
                                     <div class="news__info">
-                                        <a href="event.html" class="news__name">ЛЕКТОРИЙ ГОРОДСКИХ ПРОЕКТОВ В ПЕТЕРБУРГЕ: «НОЛЬ СМЕРТЕЙ НА ДОРОГАХ» — ВАЛЕНТИНА СОЛОВЬЁВА</a>
-                                        <p class="news__date">12 марта 2020, 19:30 </p>
-                                        <p class="news__venue">Шпалерная, 13</p>
+                                        <a href="event.html" class="news__name main-events__news-name">ЛЕКТОРИЙ ГОРОДСКИХ ПРОЕКТОВ В ПЕТЕРБУРГЕ: «НОЛЬ СМЕРТЕЙ НА ДОРОГАХ» — ВАЛЕНТИНА СОЛОВЬЁВА</a>
+                                        <p class="news__date main-events__news-date">12 марта 2020, 19:30 </p>
+                                        <p class="news__venue main-events__news-venue">Шпалерная, 13</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                 </div>
             </div>
-            <div class="col col-4">
+            <div class="col col-4 col-md-12">
 
-                <div class="calendar__block">
+                <div class="calendar__block main-events__calendar">
                     <div id="datepicker" class="calendar"></div>
                     <input type="hidden" id="datepicker_value">
                 </div>
@@ -286,7 +310,7 @@
 
                     <div class="support-form__info">
                         <div class="support-form__info-row">
-                            <div class="support-form__for-input">
+                            <div class="support-form__for-input col-md-4 col-sm-6">
                                 <div class="support-form__input-title">
                                     <label class="support-form__label-input">Фамилия</label>
                                 </div>
@@ -294,7 +318,7 @@
                                     <input type="text" name="secondname" class="support-form__input" size="15" required>
                                 </div>
                             </div>
-                            <div class="support-form__for-input">
+                            <div class="support-form__for-input col-md-4 col-sm-6">
                                 <div class="support-form__input-title">
                                     <label class="support-form__label-input">Имя</label>
                                 </div>
@@ -302,7 +326,7 @@
                                     <input type="text" name="name" class="support-form__input" size="15" required>
                                 </div>
                             </div>
-                            <div class="support-form__for-input">
+                            <div class="support-form__for-input col-md-4 col-sm-6">
                                 <div class="support-form__input-title">
                                     <label class="support-form__label-input">Отчество</label>
                                 </div>
@@ -310,7 +334,7 @@
                                     <input type="text" name="patronymic" class="support-form__input" size="15" required>
                                 </div>
                             </div>
-                            <div class="support-form__for-input">
+                            <div class="support-form__for-input col-md-4 col-sm-6">
                                 <div class="support-form__input-title">
                                     <label class="support-form__label-input">Паспорт</label>
                                 </div>
@@ -319,7 +343,7 @@
                                     <input type="text" name="passport-number" class="support-form__input support-form__input--right support-form__input--passport-number" maxlength="6" size="6" required>
                                 </div>
                             </div>
-                            <div class="support-form__for-input">
+                            <div class="support-form__for-input col-md-4">
                                 <div class="support-form__input-title">
                                     <label class="support-form__label-input">Телефон</label>
                                 </div>
@@ -327,7 +351,7 @@
                                     <input type="tel" name="phone" class="support-form__input" size="16" required>
                                 </div>
                             </div>
-                            <div class="support-form__for-input">
+                            <div class="support-form__for-input col-md-4">
                                 <div class="support-form__input-title">
                                     <label class="support-form__label-input">Почта</label>
                                 </div>
@@ -335,7 +359,7 @@
                                     <input type="email" name="email" class="support-form__input" size="15" required>
                                 </div>
                             </div>
-                            <div class="support-form__for-input">
+                            <div class="support-form__for-input col-md-4">
                                 <div class="support-form__input-title">
                                     <label class="support-form__label-input">Дата рождения</label>
                                 </div>
@@ -345,7 +369,7 @@
                                     <input type="text" name="dob-year" class="support-form__input support-form__input--right" size="4" maxlength="4" required>
                                 </div>
                             </div>
-                            <div class="support-form__for-input">
+                            <div class="support-form__for-input col-md-4">
                                 <div class="support-form__input-title">
                                     <label class="support-form__label-input">Субъект РФ</label>
                                 </div>
@@ -353,7 +377,7 @@
                                     <input type="text" name="subject" class="support-form__input" size="15" required>
                                 </div>
                             </div>
-                            <div class="support-form__for-input">
+                            <div class="support-form__for-input col-md-4">
                                 <div class="support-form__input-title">
                                     <label class="support-form__label-input">Город</label>
                                 </div>
@@ -406,8 +430,10 @@
     <div class="inner">
         <div class="footer__row">
             <div class="footer__logo-block">
-                <img src="./images/logo-white-small.png" alt="Logo" class="footer__logo">
-                <span class="footer__logo-text">Санкт-Петербург</span>
+                <a href="index.html" class="footer__logo-link">
+                    <img src="./images/logo-white-small.png" alt="Logo" class="footer__logo">
+                    <span class="footer__logo-text">Санкт-Петербург</span>
+                </a>
             </div>
             <div class="footer__info-block">
                 <div class="footer__info">

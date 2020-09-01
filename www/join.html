@@ -32,7 +32,22 @@
                 <img src="./images/logo.png" alt="Logo" class="header__logo-img">
                 <div class="header__logo-text">Санкт-Петербург</div>
             </a>
+            <button type="button" class="burger" id="burger">
+                <span class="burger__lines">
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                </span>
+                <span class="burger__text">МЕНЮ</span>
+            </button>
             <div class="header__info">
+                <button type="button" class="burger-close" id="burger-close">
+                    <span class="burger-close__text">СВЕРНУТЬ МЕНЮ</span>
+                    <span class="burger-close__lines">
+                        <span class="burger-close__line"></span>
+                        <span class="burger-close__line"></span>
+                    </span>
+                </button>
                 <div class="header__menu">
                     <nav class="menu">
                         <ul class="menu__list">
@@ -52,10 +67,10 @@
                     <div class="header__search">
                         <div class="search">
                             <form class="search__form" id="search-form" role="search" method="get" action="">
-                              <button class="search__search-btn" type="submit"></button>
-                              <input class="search__input" type="search" placeholder="Поиск" value="" name="search">              
+                                <button class="search__search-btn" type="submit"></button>
+                                <input class="search__input" type="search" placeholder="Поиск" value="" name="search">
                             </form>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -64,6 +79,15 @@
 </header>
 
 <main class="main">
+
+    <div class="mobile-btns">
+        <div class="inner">
+            <div class="mobile-btns__block">
+                <a href="index.html#support" class="btn btn__support btn__support--small mobile-btns__btn">ПОДДЕРЖАТЬ</a>
+                <a href="join.html" class="btn btn__join mobile-btns__btn">ПРИСОЕДИНИТЬСЯ</a>
+            </div>
+        </div>
+    </div>
 
 <section class="page">
     <div class="inner">
@@ -135,10 +159,10 @@
                                     <div class="col col-12">
                                         <span class="join-form__label-input">Соцсети</span>
                                     </div>
-                                    <div class="col col-4 join-form__item">
+                                    <div class="col col-4 col-sm-10 join-form__item">
                                         <input type="text" name="social-network[]" class="join-form__input">
                                     </div>
-                                    <div class="col col-4 join-form__item join-form-social-network__btn-block"><button id="add-social-network" class="join-form-social-network__btn" type="button">+</button></div>
+                                    <div class="col col-4 col-sm-2 join-form__item join-form-social-network__btn-block"><button id="add-social-network" class="join-form-social-network__btn" type="button">+</button></div>
                                 </div>
 
                                 <div class="row join-form__checkboxes">
@@ -176,13 +200,13 @@
                                 </div>
 
                                 <div class="row row--center-vertical">
-                                    <div class="col col-5 join-form__item">
+                                    <div class="col col-5 col-md-12 join-form__item join-form__item-btn">
                                         <div class="join-form__for-btn">
                                             <button type="submit" class="btn btn__join btn__join--big">ВСТУПИТЬ В ЯБЛОКО</button>
                                         </div>
                                     </div>
-                                    <div class="col col-6 join-form__item">
-                                        <div class="join-form__for-checkbox">
+                                    <div class="col col-6 col-md-12 join-form__item">
+                                        <div class="join-form__for-checkbox join-form__for-checkbox--memorandum">
                                             <input class="join-form__checkbox" id="agree-join" type="checkbox" name="agree" value="ok" required checked>
                                             <label for="agree-join" class="join-form__label join-form__label--agree">
                                                 <span class="join-form__check"></span>
@@ -297,8 +321,10 @@
     <div class="inner">
         <div class="footer__row">
             <div class="footer__logo-block">
-                <img src="./images/logo-white-small.png" alt="Logo" class="footer__logo">
-                <span class="footer__logo-text">Санкт-Петербург</span>
+                <a href="index.html" class="footer__logo-link">
+                    <img src="./images/logo-white-small.png" alt="Logo" class="footer__logo">
+                    <span class="footer__logo-text">Санкт-Петербург</span>
+                </a>
             </div>
             <div class="footer__info-block">
                 <div class="footer__info">

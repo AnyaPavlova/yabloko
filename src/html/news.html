@@ -6,8 +6,11 @@
 <section class="page">
     <div class="inner">
         <div class="row row--big">
-            <div class="col col-8">
+            <div class="col col-8 col-md-12">
                 <div class="news">
+                    <button class="news__burger" id="news-burger">
+                        <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 28.3 28.3" xml:space="preserve"><path class="st0" d="M0 0h8.1v8.1H0zM10.1 0h8.1v8.1h-8.1zM20.3 0h8.1v8.1h-8.1zM0 10.1h8.1v8.1H0zM10.1 10.1h8.1v8.1h-8.1zM20.3 10.1h8.1v8.1h-8.1zM0 20.2h8.1v8.1H0zM10.1 20.2h8.1v8.1h-8.1z"/></svg>
+                    </button>
                     <h1 class="news__title">НОВОСТИ</h1>
 
                     <div class="row news__list">
@@ -105,7 +108,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-4">
+            <div class="col col-4 col-md-12 news__calendar" id="calendar-block">
+
+                <button type="button" class="burger-close news__burger-close" id="news-burger-close">
+                    <span class="burger-close__text">ЗАКРЫТЬ КАЛЕНДАРЬ</span>
+                    <span class="burger-close__lines">
+                        <span class="burger-close__line"></span>
+                        <span class="burger-close__line"></span>
+                    </span>
+                </button>
 
                 <div class="calendar__block">
                     <div id="datepicker" class="calendar"></div>
