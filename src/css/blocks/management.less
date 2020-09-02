@@ -2,6 +2,10 @@
     padding-top: 15px;
     padding-bottom: 41px;
 
+    @media screen and (max-width: 670px) {
+        padding-bottom: 31px;
+    }
+
     &__info {
         padding: 30px 30px 0 30px;
         background-color: #f9f9f9;
@@ -9,11 +13,27 @@
     &__leader-block {
         max-width: 165px;
         text-align: center;
+
+        @media screen and (max-width: 670px) {
+            margin: 10px auto 0;
+        }
     }
     &__title {
         font-size: 20px;
         font-weight: 600;
         padding-bottom: 10px;
         line-height: 1.2;
+    }
+
+    &__h1 {
+        @media screen and (max-width: 670px) {
+            text-align: center;
+        }
+    }
+
+    &__employees-block {
+        @media screen and (max-width: 670px) {
+            margin-top: -15px;
+        }
     }
 }

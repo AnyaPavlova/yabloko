@@ -1,5 +1,9 @@
 .another-articles {
     padding-bottom: 20px;
+
+    @media screen and (max-width: 960px) {
+        padding-bottom: 30px;
+    }
     
     &__title {
         font-weight: 600;
@@ -7,6 +11,10 @@
         padding-bottom: 15px;
         font-size: 20px;
         text-transform: uppercase;
+
+        @media screen and (max-width: 670px) {
+            text-align: center;
+        }
     }
     &__list {
         padding-bottom: 7px;

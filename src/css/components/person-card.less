@@ -4,21 +4,42 @@
     align-content: center;
     align-items: center;
 
+    @media screen and (max-width: 670px) {
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 7px;
+    }
+
     &__photo {
         width: 165px;
     }
     &__info {
         width: calc(100% - 165px);
         padding-left: 25px;
+
+        @media screen and (max-width: 670px) {
+            margin-top: 12px;
+            width: 100%;
+            padding-left: 0;
+        }
     }
 
     &__name-block {
         font-size: 20px;
         font-weight: 600;
         padding-bottom: 3px;
+
+        @media screen and (max-width: 670px) {
+            text-align: center;
+            line-height: 1.2;
+        }
     }
     &__surname {
         text-transform: uppercase;
+
+        @media screen and (max-width: 670px) {
+            display: block;
+        }
     }
 
     &__position {
@@ -43,4 +64,10 @@
 .person-card__social-links {
     margin-bottom: 0;
     margin-top: 11px;
+
+    @media screen and (max-width: 670px) {
+        .social-links__block {
+            justify-content: center;
+        }
+    }
 }

@@ -1,23 +1,45 @@
 .article {
 
+    @media screen and (max-width: 670px) {
+        padding-bottom: 10px;
+    }
+
     &__title {
         padding-bottom: 8px;
+
+        @media screen and (max-width: 670px) {
+            font-size: 18px;
+            padding-bottom: 4px;
+        }
     }
 
     &__date {
         font-size  : 16px;
         font-weight: 500;
         color      : @color-green;
+
+        @media screen and (max-width: 670px) {
+            font-size: 14px;
+        }
+
     }
 
     &__preview {
         margin-top: 13px;
+
+        @media screen and (max-width: 670px) {
+            margin-top: 23px;
+        }
     }
     &__preview-img {
         border-radius: 5px;
     }
     &__content {
         padding-top: 36px;
+
+        @media screen and (max-width: 670px) {
+            padding-top: 20px;
+        }
         
         p, ul, ol {
             padding-bottom: 25px;
@@ -50,5 +72,10 @@
         padding-top: 5px;
         padding-bottom: 45px;
         text-align: center;
+
+        @media screen and (max-width: 670px) {
+            padding-bottom: 25px;
+            padding-top: 8px;
+        }
     }
 }

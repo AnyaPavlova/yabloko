@@ -1,4 +1,24 @@
 .member {
     padding-top: 21px;
     padding-bottom: 35px;
+
+    @media screen and (max-width: 960px) {
+        padding-bottom: 0px;
+    }
+
+    @media screen and (max-width: 670px) {
+        padding-bottom: 0;
+    }
+
+    &__h1 {
+        @media screen and (max-width: 670px) {
+            text-align: center;
+        }
+    }
+
+    &__another {
+        @media screen and (max-width: 960px) {
+            padding-top: 25px;
+        }
+    }
 }
