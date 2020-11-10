@@ -93,6 +93,10 @@
     padding-left: 11px;
     font-weight: 400;
 }
+/*любое свойство - для safari*/
+.join-form__checkbox:checked + .join-form__label { 
+  position: relative; 
+}
 .join-form__checkbox:checked + .join-form__label .join-form__check:before {
     content: '';
     display: block;
